@@ -447,3 +447,18 @@ footer p {
 .linkedin:hover {
   color: #e63946; /* Rojo vibrante al pasar el ratón */
 }
+.projects-columns-container {
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.project-column {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  flex: 1;
+  min-width: 300px;
+}
