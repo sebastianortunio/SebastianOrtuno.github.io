@@ -1,6 +1,4 @@
-/* GENERAL */
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Inter:wght@300;400;500;700&family=Lato:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@300;400;500;700&family=Playfair+Display:wght@400;700&display=swap');
 
 * {
   margin: 0;
@@ -8,9 +6,9 @@
 }
 
 body {
-  font-family: 'Poppins', 'Inter', 'Lato', sans-serif; /* Fuentes modernas y llamativas */
-  background-color: #f8f9fa; /* Fondo blanco hielo */
-  color: black; /* Establecer color de texto a negro en toda la página */
+  font-family: 'Roboto', 'Montserrat', 'Playfair Display', sans-serif; /* Modern fonts */
+  background: linear-gradient(45deg, #000000, #1c1c1c); /* Degradado de negro a gris oscuro */
+  color: #f5f5f5; /* Light off-white text */
 }
 
 html {
@@ -18,7 +16,7 @@ html {
 }
 
 p {
-  color: black; /* Asegura que los párrafos también sean de color negro */
+  color: #f5f5f5; /* Ensure paragraphs are light gray */
 }
 
 /* TRANSITION */
@@ -39,7 +37,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   height: 15vh;
-  background-color: #e63946; /* Rojo vibrante */
+  background-color: #000000; /* Black background */
   padding: 0 2rem;
 }
 
@@ -50,20 +48,20 @@ nav {
 }
 
 a {
-  color: black; /* Asegura que los enlaces sean negros */
+  color: #f5f5f5; /* Light text color */
   text-decoration: none;
 }
 
 a:hover {
-  color: #ffcc00; /* Amarillo brillante al pasar el ratón */
+  color: #d4af37; /* Gold on hover */
   text-decoration: underline;
   text-underline-offset: 1rem;
-  text-decoration-color: #f1faee;
+  text-decoration-color: #f5f5f5;
 }
 
 .logo {
   font-size: 2.5rem;
-  color: black; /* Logo también en negro */
+  color: #f5f5f5; /* Light logo color */
 }
 
 .logo:hover {
@@ -93,7 +91,7 @@ a:hover {
 .hamburger-icon span {
   width: 100%;
   height: 2px;
-  background-color: white;
+  background-color: #f5f5f5;
   transition: all 0.3s ease-in-out;
 }
 
@@ -101,7 +99,7 @@ a:hover {
   position: absolute;
   top: 100%;
   right: 0;
-  background-color: #e63946;
+  background-color: #000000; /* Black background */
   width: fit-content;
   max-height: 0;
   overflow: hidden;
@@ -113,7 +111,7 @@ a:hover {
   padding: 10px;
   text-align: center;
   font-size: 1.5rem;
-  color: black; /* Asegura que los enlaces en el menú también sean negros */
+  color: #f5f5f5;
 }
 
 .menu-links li {
@@ -144,11 +142,16 @@ section {
   margin: 0 5rem;
   box-sizing: border-box;
   min-height: fit-content;
-  background-color: #f8f9fa; /* Fondo blanco hielo */
+  background: linear-gradient(135deg, #1c1c1c 40%, #000000 100%); /* Degradado oscuro */
+  border-top: 3px solid #d4af37; /* Gold divider */
+  border-bottom: 3px solid #d4af37;
+  animation: fadeUp 0.8s ease-out;
 }
 
 .section-container {
   display: flex;
+  gap: 4rem;
+  height: 80%;
 }
 
 /* PROFILE SECTION (Hello I am Sebastian) */
@@ -168,11 +171,11 @@ section {
 }
 
 #profile .section__pic-container img {
-  border-radius: 50%; /* Hacer la imagen circular */
-  width: 400px; /* Aumentar el tamaño de la imagen */
-  height: 400px; /* Ajustar la altura proporcionalmente */
-  object-fit: cover; /* Asegurarse de que la imagen no se deforme */
-  margin: auto; /* Centrar la imagen */
+  border-radius: 50%;
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  margin: auto;
 }
 
 .section__text {
@@ -182,7 +185,7 @@ section {
 
 .section__text p {
   font-weight: 600;
-  color: black; /* Texto de la sección en negro */
+  color: #f5f5f5;
 }
 
 .section__text__p1 {
@@ -197,7 +200,13 @@ section {
 .title {
   font-size: 3rem;
   text-align: center;
-  color: black; /* Título en negro */
+  color: #f5f5f5;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.title:hover {
+  color: #d4af37; /* Gold when hovered */
+  transition: color 0.3s ease;
 }
 
 #socials-container {
@@ -212,7 +221,7 @@ section {
 .icon {
   cursor: pointer;
   height: 2rem;
-  color: black; /* Iconos en negro */
+  color: #d4af37; /* Gold icon color */
 }
 
 /* BUTTONS */
@@ -229,11 +238,14 @@ section {
   padding: 1rem;
   width: 8rem;
   border-radius: 2rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Sombra suave */
 }
 
 .btn-color-1,
 .btn-color-2 {
-  border: #e63946 0.1rem solid;
+  border: #d4af37 0.1rem solid; /* Gold border */
 }
 
 .btn-color-1:hover,
@@ -243,12 +255,12 @@ section {
 
 .btn-color-1,
 .btn-color-2:hover {
-  background: #e63946; /* Rojo vibrante */
+  background: #d4af37; /* Gold on hover */
   color: white;
 }
 
 .btn-color-1:hover {
-  background: #ffcc00; /* Amarillo brillante al pasar el ratón */
+  background: #b08d32;
 }
 
 .btn-color-2 {
@@ -256,7 +268,26 @@ section {
 }
 
 .btn-color-2:hover {
-  border: #ffcc00 0.1rem solid;
+  border: #b08d32 0.1rem solid;
+}
+
+.btn-color-1:hover::before {
+  transform: scaleX(1);
+  transform-origin: bottom right;
+}
+
+.btn-color-1::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #d4af37;
+  z-index: -1;
+  transform: scaleX(0);
+  transform-origin: top left;
+  transition: transform 0.4s ease;
 }
 
 /* ABOUT SECTION */
@@ -282,11 +313,11 @@ section {
 }
 
 .about-pic {
-  border-radius: 50%; /* Hacer la imagen circular */
-  width: 400px; /* Aumentar el tamaño de la imagen */
-  height: 400px; /* Ajustar la altura proporcionalmente */
-  object-fit: cover; /* Asegurarse de que la imagen no se deforme */
-  margin: auto; /* Centrar la imagen */
+  border-radius: 50%;
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  margin: auto;
 }
 
 .arrow {
@@ -298,21 +329,10 @@ section {
 .details-container {
   padding: 1.5rem;
   flex: 1;
-  background: white;
+  background: #1c1c1c; /* Dark background */
   border-radius: 2rem;
-  border: #e63946 0.1rem solid;
+  border: #d4af37 0.1rem solid; /* Gold border */
   text-align: center;
-}
-
-.section-container {
-  gap: 4rem;
-  height: 80%;
-}
-
-.section__pic-container {
-  height: 400px;
-  width: 400px;
-  margin: auto 0;
 }
 
 /* EXPERIENCE SECTION */
@@ -322,7 +342,7 @@ section {
 }
 
 .experience-sub-title {
-  color: black; /* Subtítulos de experiencia en negro */
+  color: #f5f5f5;
   font-weight: 600;
   font-size: 1.75rem;
   margin-bottom: 2rem;
@@ -358,12 +378,12 @@ article .icon {
 
 #projects {
   position: relative;
-  margin-bottom: 2rem; /* Reduce margin at the bottom */
+  margin-bottom: 2rem;
 }
 
 .color-container {
-  border-color: #ffcc00;
-  background: #fff9c4; /* Fondo amarillo suave */
+  border-color: #d4af37; /* Gold border */
+  background: #1c1c1c; /* Dark black background */
 }
 
 .project-img {
@@ -373,13 +393,20 @@ article .icon {
 }
 
 .project-title {
-  margin: 0.5rem; /* Reduce margin */
-  color: black; /* Título de proyectos en negro */
+  margin: 0.5rem;
+  color: #f5f5f5; /* Light titles */
+  font-weight: 600;
 }
 
 .project-btn {
-  color: black; /* Botón de proyectos en negro */
-  border-color: black;
+  color: #f5f5f5;
+  border-color: #f5f5f5;
+}
+
+/* For project description text */
+.project-description {
+  color: #f5f5f5; /* Soft light gray for description text */
+  font-size: 1.1rem;
 }
 
 /* CONTACT */
@@ -388,18 +415,18 @@ article .icon {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  height: auto; /* Allow the contact section to grow naturally */
-  margin-top: 2rem; /* Adjust top margin */
-  margin-bottom: 1.5rem; /* Adjust bottom margin */
+  height: auto;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .contact-info-upper-container {
   display: flex;
   justify-content: center;
   border-radius: 2rem;
-  border: #e63946 0.1rem solid;
-  background: #fff9c4;
-  margin: 1rem auto; /* Reduce margin */
+  border: #d4af37 0.1rem solid; /* Gold border */
+  background: #1c1c1c;
+  margin: 1rem auto;
   padding: 0.5rem;
 }
 
@@ -413,7 +440,7 @@ article .icon {
 
 .contact-info-container p {
   font-size: larger;
-  color: black; /* Asegura que el texto del contenedor de contacto sea negro */
+  color: #f5f5f5;
 }
 
 .contact-icon {
@@ -424,29 +451,56 @@ article .icon {
   height: 2.5rem;
 }
 
+/* BUTTON FOR DOWNLOAD CV */
+.download-cv-btn {
+  display: inline-block;
+  background-color: #1c1c1c;
+  color: #f5f5f5;
+  border: 0.1rem solid #d4af37; /* Gold border */
+  padding: 1rem 2rem;
+  text-align: center;
+  font-weight: 600;
+  border-radius: 2rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.download-cv-btn:hover {
+  background-color: #d4af37; /* Gold background */
+  color: #1c1c1c; /* Dark text color */
+  cursor: pointer;
+}
+
 /* FOOTER SECTION */
 
 footer {
   height: 26vh;
   margin: 0 1rem;
-  background-color: #e63946;
+  background-color: #000000; /* Black footer */
 }
 
 footer p {
   text-align: center;
-  color: black; /* Texto del pie de página en negro */
+  color: #f5f5f5;
 }
 
-/* Cambiar color a negro para los enlaces de email y LinkedIn */
+/* Email and LinkedIn Links */
+
 .email,
 .linkedin {
-  color: black; /* Cambiar color de los enlaces a negro */
+  color: #f5f5f5;
 }
 
 .email:hover,
 .linkedin:hover {
-  color: #e63946; /* Rojo vibrante al pasar el ratón */
+  color: #d4af37; /* Gold on hover */
 }
+
+/* Divider between sections */
+.divider {
+  border-top: 4px solid #d4af37; /* Gold divider */
+  margin: 2rem 0;
+}
+
 .projects-columns-container {
   display: flex;
   flex-direction: row;
@@ -461,4 +515,46 @@ footer p {
   gap: 3rem;
   flex: 1;
   min-width: 300px;
+}
+
+/* ANIMATIONS */
+
+/* Fade In */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade Up */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Cube Drop */
+@keyframes cubeDrop {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px) rotate(45deg);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(20px) rotate(45deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(0) rotate(45deg);
+  }
 }
