@@ -3,12 +3,13 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  font-family: 'Roboto', 'Montserrat', 'Playfair Display', sans-serif; /* Modern fonts */
-  background: linear-gradient(45deg, #000000, #1c1c1c); /* Degradado de negro a gris oscuro */
-  color: #f5f5f5; /* Light off-white text */
+  font-family: 'Roboto', 'Montserrat', 'Playfair Display', sans-serif;
+  background: linear-gradient(45deg, #000000, #1c1c1c);
+  color: #f5f5f5;
 }
 
 html {
@@ -16,18 +17,16 @@ html {
 }
 
 p {
-  color: #f5f5f5; /* Ensure paragraphs are light gray */
+  color: #f5f5f5;
 }
 
 /* TRANSITION */
-
 a,
 .btn {
   transition: all 300ms ease;
 }
 
 /* DESKTOP NAV */
-
 nav,
 .nav-links {
   display: flex;
@@ -37,8 +36,9 @@ nav {
   justify-content: space-between;
   align-items: center;
   height: 15vh;
-  background-color: #000000; /* Black background */
+  background-color: #000000;
   padding: 0 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
 
 .nav-links {
@@ -48,12 +48,12 @@ nav {
 }
 
 a {
-  color: #f5f5f5; /* Light text color */
+  color: #f5f5f5;
   text-decoration: none;
 }
 
 a:hover {
-  color: #d4af37; /* Gold on hover */
+  color: #d4af37;
   text-decoration: underline;
   text-underline-offset: 1rem;
   text-decoration-color: #f5f5f5;
@@ -61,15 +61,16 @@ a:hover {
 
 .logo {
   font-size: 2.5rem;
-  color: #f5f5f5; /* Light logo color */
+  color: #f5f5f5;
 }
 
 .logo:hover {
   cursor: pointer;
+  color: #d4af37;
+  transform: scale(1.05);
 }
 
 /* HAMBURGER MENU */
-
 #hamburger-nav {
   display: none;
 }
@@ -99,7 +100,7 @@ a:hover {
   position: absolute;
   top: 100%;
   right: 0;
-  background-color: #000000; /* Black background */
+  background-color: #000000;
   width: fit-content;
   max-height: 0;
   overflow: hidden;
@@ -135,15 +136,14 @@ a:hover {
 }
 
 /* SECTIONS */
-
 section {
   padding-top: 4vh;
   height: 96vh;
   margin: 0 5rem;
   box-sizing: border-box;
   min-height: fit-content;
-  background: linear-gradient(135deg, #1c1c1c 40%, #000000 100%); /* Degradado oscuro */
-  border-top: 3px solid #d4af37; /* Gold divider */
+  background: linear-gradient(135deg, #1c1c1c 40%, #000000 100%);
+  border-top: 3px solid #d4af37;
   border-bottom: 3px solid #d4af37;
   animation: fadeUp 0.8s ease-out;
 }
@@ -154,8 +154,7 @@ section {
   height: 80%;
 }
 
-/* PROFILE SECTION (Hello I am Sebastian) */
-
+/* PROFILE SECTION */
 #profile {
   display: flex;
   justify-content: center;
@@ -168,6 +167,7 @@ section {
   height: 400px;
   width: 400px;
   margin: auto 0;
+  animation: float 6s ease-in-out infinite;
 }
 
 #profile .section__pic-container img {
@@ -176,6 +176,8 @@ section {
   height: 400px;
   object-fit: cover;
   margin: auto;
+  border: 4px solid #d4af37;
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.2);
 }
 
 .section__text {
@@ -205,7 +207,7 @@ section {
 }
 
 .title:hover {
-  color: #d4af37; /* Gold when hovered */
+  color: #d4af37;
   transition: color 0.3s ease;
 }
 
@@ -217,15 +219,18 @@ section {
 }
 
 /* ICONS */
-
 .icon {
   cursor: pointer;
   height: 2rem;
-  color: #d4af37; /* Gold icon color */
+  color: #d4af37;
+  transition: transform 0.3s ease;
+}
+
+.icon:hover {
+  transform: scale(1.2);
 }
 
 /* BUTTONS */
-
 .btn-container {
   display: flex;
   justify-content: center;
@@ -240,12 +245,12 @@ section {
   border-radius: 2rem;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Sombra suave */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
 .btn-color-1,
 .btn-color-2 {
-  border: #d4af37 0.1rem solid; /* Gold border */
+  border: #d4af37 0.1rem solid;
 }
 
 .btn-color-1:hover,
@@ -255,7 +260,7 @@ section {
 
 .btn-color-1,
 .btn-color-2:hover {
-  background: #d4af37; /* Gold on hover */
+  background: #d4af37;
   color: white;
 }
 
@@ -291,7 +296,6 @@ section {
 }
 
 /* ABOUT SECTION */
-
 #about {
   position: relative;
 }
@@ -318,25 +322,27 @@ section {
   height: 400px;
   object-fit: cover;
   margin: auto;
+  border: 4px solid #d4af37;
 }
 
 .arrow {
   position: absolute;
   right: -5rem;
   bottom: 2.5rem;
+  animation: bounce 2s infinite;
 }
 
 .details-container {
   padding: 1.5rem;
   flex: 1;
-  background: #1c1c1c; /* Dark background */
+  background: #1c1c1c;
   border-radius: 2rem;
-  border: #d4af37 0.1rem solid; /* Gold border */
+  border: #d4af37 0.1rem solid;
   text-align: center;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
 }
 
 /* EXPERIENCE SECTION */
-
 #experience {
   position: relative;
 }
@@ -375,26 +381,32 @@ article .icon {
 }
 
 /* PROJECTS SECTION */
-
 #projects {
   position: relative;
   margin-bottom: 2rem;
 }
 
 .color-container {
-  border-color: #d4af37; /* Gold border */
-  background: #1c1c1c; /* Dark black background */
+  border-color: #d4af37;
+  background: #1c1c1c;
 }
 
 .project-img {
   border-radius: 2rem;
   width: 90%;
   height: 90%;
+  filter: grayscale(30%);
+  transition: all 0.3s ease;
+}
+
+.project-img:hover {
+  filter: grayscale(0%);
+  transform: scale(1.03);
 }
 
 .project-title {
   margin: 0.5rem;
-  color: #f5f5f5; /* Light titles */
+  color: #f5f5f5;
   font-weight: 600;
 }
 
@@ -405,12 +417,11 @@ article .icon {
 
 /* For project description text */
 .project-description {
-  color: #f5f5f5; /* Soft light gray for description text */
+  color: #f5f5f5;
   font-size: 1.1rem;
 }
 
 /* CONTACT */
-
 #contact {
   display: flex;
   justify-content: center;
@@ -424,7 +435,7 @@ article .icon {
   display: flex;
   justify-content: center;
   border-radius: 2rem;
-  border: #d4af37 0.1rem solid; /* Gold border */
+  border: #d4af37 0.1rem solid;
   background: #1c1c1c;
   margin: 1rem auto;
   padding: 0.5rem;
@@ -456,7 +467,7 @@ article .icon {
   display: inline-block;
   background-color: #1c1c1c;
   color: #f5f5f5;
-  border: 0.1rem solid #d4af37; /* Gold border */
+  border: 0.1rem solid #d4af37;
   padding: 1rem 2rem;
   text-align: center;
   font-weight: 600;
@@ -465,17 +476,16 @@ article .icon {
 }
 
 .download-cv-btn:hover {
-  background-color: #d4af37; /* Gold background */
-  color: #1c1c1c; /* Dark text color */
+  background-color: #d4af37;
+  color: #1c1c1c;
   cursor: pointer;
 }
 
 /* FOOTER SECTION */
-
 footer {
   height: 26vh;
   margin: 0 1rem;
-  background-color: #000000; /* Black footer */
+  background-color: #000000;
 }
 
 footer p {
@@ -484,7 +494,6 @@ footer p {
 }
 
 /* Email and LinkedIn Links */
-
 .email,
 .linkedin {
   color: #f5f5f5;
@@ -492,12 +501,12 @@ footer p {
 
 .email:hover,
 .linkedin:hover {
-  color: #d4af37; /* Gold on hover */
+  color: #d4af37;
 }
 
 /* Divider between sections */
 .divider {
-  border-top: 4px solid #d4af37; /* Gold divider */
+  border-top: 4px solid #d4af37;
   margin: 2rem 0;
 }
 
@@ -518,8 +527,6 @@ footer p {
 }
 
 /* ANIMATIONS */
-
-/* Fade In */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -531,7 +538,6 @@ footer p {
   }
 }
 
-/* Fade Up */
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -543,7 +549,6 @@ footer p {
   }
 }
 
-/* Cube Drop */
 @keyframes cubeDrop {
   0% {
     opacity: 0;
@@ -556,5 +561,26 @@ footer p {
   100% {
     opacity: 0;
     transform: translateY(0) rotate(45deg);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0);
   }
 }
