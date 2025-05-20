@@ -39,25 +39,28 @@
   <body>
     <!-- DESKTOP NAV -->
     <nav id="desktop-nav">
-      <div class="logo">Welcome To My Data Science And Analytics Portfolio</div>
+      <div class="logo">Data Science and Analytics Portfolio</div>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
-    <!-- MOBILE NAV -->
 
-          <span></span><span></span><span></span>
-        </div>
-        <ul class="menu-links">
-          <li><a href="#about" onclick="toggleMenu()">About</a></li>
-          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
-        </ul>
-      </div>
-    </nav>
-
+<!-- MOBILE NAV -->
+<nav id="hamburger-nav" aria-label="Mobile navigation">
+  <div class="logo"></div>
+  <div class="hamburger-menu">
+    <div class="hamburger-icon" onclick="toggleMenu()" aria-label="Toggle menu" role="button" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="menu-links">
+      <li><a href="#about" onclick="toggleMenu()">About</a></li>
+      <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+      <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+    </ul>
+  </div>
+</nav>
 
     <!-- PROFILE SECTION -->
     <section id="profile">
