@@ -9,7 +9,8 @@
     <style>
       /* Mobile Responsiveness */
       @media (max-width: 768px) {
-        #profile, .section-container {
+        #profile,
+        .section-container {
           flex-direction: column;
           align-items: center;
           text-align: center;
@@ -83,8 +84,18 @@
         </div>
 
         <div id="socials-container">
-          <img src="./linkedinis.png" class="icon" alt="LinkedIn" onclick="location.href='https://www.linkedin.com/in/sebastian-ortuno-barrero-324382257/'" />
-          <img src="./github.png" class="icon" alt="GitHub" onclick="location.href='https://github.com/sebastianortunio'" />
+          <img
+            src="./linkedinis.png"
+            class="icon"
+            alt="LinkedIn"
+            onclick="location.href='https://www.linkedin.com/in/sebastian-ortuno-barrero-324382257/'"
+          />
+          <img
+            src="./github.png"
+            class="icon"
+            alt="GitHub"
+            onclick="location.href='https://github.com/sebastianortunio'"
+          />
         </div>
       </div>
     </section>
@@ -101,15 +112,21 @@
           <div class="about-containers">
             <div class="details-container">
               <h3>Education</h3>
-              <p>
-                B.Sc. Business Management<br />
-                Oakland City University, 2024<br />
-                Concentrations: Business Management, HR Management
-              </p>
-              <p>
-                M.Sc. Data Science and Analytics (Expected 2026)<br />
-                New England College
-              </p>
+              <div class="education-columns" style="display: flex; flex-wrap: wrap; gap: 2rem;">
+                <div class="edu-item" style="flex: 1 1 300px; min-width: 280px;">
+                  <p>
+                    <strong>B.Sc. Business Management</strong><br />
+                    Oakland City University — 2024<br />
+                    <em>Concentrations:</em> Business Management, Human Resources Management
+                  </p>
+                </div>
+                <div class="edu-item" style="flex: 1 1 300px; min-width: 280px;">
+                  <p>
+                    <strong>M.Sc. Data Science and Analytics</strong><br />
+                    New England College — <em>Expected 2026</em>
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
           <div class="text-container">
@@ -136,7 +153,12 @@
             <h2 class="skills-sub-title project-title">Nashville Housing Project</h2>
             I used SQL to clean and transform a Nashville housing dataset, optimizing dates, addresses, values, and removing duplicates.
             <div class="btn-container">
-              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/sebastianortunio/Nashville-Housing'">Github</button>
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/sebastianortunio/Nashville-Housing'"
+              >
+                Github
+              </button>
             </div>
           </div>
 
@@ -148,7 +170,12 @@
             <h2 class="skills-sub-title project-title">Covid-Project</h2>
             This project analyzes and transforms COVID-19 data, calculating death rates, infection rates, and vaccination trends using SQL.
             <div class="btn-container">
-              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/sebastianortunio/Covid-Project'">Github</button>
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/sebastianortunio/Covid-Project'"
+              >
+                Github
+              </button>
             </div>
           </div>
 
@@ -160,7 +187,12 @@
             <h2 class="skills-sub-title project-title">Airquality Project</h2>
             Cleaned and transformed air quality data, handled missing values, created new variables, and visualized temperature trends using various chart types in R.
             <div class="btn-container">
-              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/sebastianortunio/Airquality-Project/blob/main/Air_quality_project.R'">Github</button>
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/sebastianortunio/Airquality-Project/blob/main/Air_quality_project.R'"
+              >
+                Github
+              </button>
             </div>
           </div>
         </div>
@@ -175,7 +207,12 @@
             <h2 class="skills-sub-title project-title">Sports Store Analysis</h2>
             The project analyzed a sports analytics store's performance using SQL to calculate revenue, profit, ratings, and trends.
             <div class="btn-container">
-              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/sebastianortunio/Store-Sports-Analysis'">Github</button>
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/sebastianortunio/Store-Sports-Analysis'"
+              >
+                Github
+              </button>
             </div>
           </div>
 
@@ -187,7 +224,12 @@
             <h2 class="skills-sub-title project-title">Covid Analysis Tableau Dashboard</h2>
             The graph in Tableau visualized COVID-19 data, displaying trends in death rates, infection rates, and vaccination progress over time to provide insights into the pandemic's impact.
             <div class="btn-container">
-              <button class="btn btn-color-2 project-btn" onclick="location.href='https://public.tableau.com/app/profile/sebastian.ortuno.barrero/viz/CovidProjectVisualizations/Dashboard1?publish=yes'">Tableau</button>
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://public.tableau.com/app/profile/sebastian.ortuno.barrero/viz/CovidProjectVisualizations/Dashboard1?publish=yes'"
+              >
+                Tableau
+              </button>
             </div>
           </div>
 
@@ -199,7 +241,12 @@
             <h2 class="skills-sub-title project-title">Sports Sales & Customers Analysis Tableau Dashboard</h2>
             The Tableau dashboard visualizes number of orders, revenue, profit, and profit ratings for a sports store.
             <div class="btn-container">
-              <button class="btn btn-color-2 project-btn" onclick="location.href='https://public.tableau.com/app/profile/sebastian.ortuno.barrero/viz/SportsSalesCustomerAnalysis/RatingsDashboard?publish=y'">Tableau</button>
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://public.tableau.com/app/profile/sebastian.ortuno.barrero/viz/SportsSalesCustomerAnalysis/RatingsDashboard?publish=y'"
+              >
+                Tableau
+              </button>
             </div>
           </div>
         </div>
@@ -214,7 +261,12 @@
             <h2 class="skills-sub-title project-title">Bike Sales Store - Excel Dashboard </h2>
             Bike sales dashboard in Excel with cleaned data, pivot tables, charts, and filters by region, education, and marital status.
             <div class="btn-container">
-              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/sebastianortunio/Excel-Bikes_Sales-Project'">Github</button>
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/sebastianortunio/Excel-Bikes_Sales-Project'"
+              >
+                Github
+              </button>
             </div>
           </div>
 
@@ -224,26 +276,34 @@
               <img src="./Movie.png" alt="Project 8" class="project-img" />
             </div>
             <h2 class="skills-sub-title project-title">Movies Project</h2>
-            This project analyzes correlations between movie features (like budget, votes, and ratings) and their gross earnings using data visualization and statistical methods in Python.
+            This project analyzes correlations between movie features (like budget, votes, and ratings) and their gross earnings using data visualization in Python.
             <div class="btn-container">
-              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/sebastianortunio/Python-Movies_Project/blob/main/Movies_Project.ipynb'">Github</button>
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/sebastianortunio/Movies-Project'"
+              >
+                Github
+              </button>
             </div>
           </div>
 
           <!-- Project 9 -->
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img src="./school.png" alt="Project 9" class="project-img" />
-            </div>
-            <h2 class="skills-sub-title project-title">School Project</h2>
-            This project involves cleaning and standardizing data across multiple tables related to school reports, including formatting issues, inconsistent values, and missing data, using SQL.
-            <div class="btn-container">
-              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/sebastianortunio/SQL-School_Project'">Github</button>
-            </div>
-          </div>
-        </div>
+    <!-- Project 9 -->
+    <div class="details-container color-container">
+      <div class="article-container">
+        <img src="./school.png" alt="Project 9" class="project-img" />
       </div>
+      <h2 class="skills-sub-title project-title">School Project</h2>
+      This project involves cleaning and standardizing data across multiple tables related to school reports, including formatting issues, inconsistent values, and missing data, using SQL.
+      <div class="btn-container">
+        <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/sebastianortunio/SQL-School_Project'">Github</button>
+      </div>
+    </div>
+  </div>
+</div>
 
+<img src="./arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#contact'" />
+    </section>
       <img src="./arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#contact'" />
     </section>
 
