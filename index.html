@@ -4,88 +4,124 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Portfolio</title>
+    <title>Sebastian Ortuno Portfolio</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="mediaqueries.css" />
+    <style>
+      /* Mobile Responsiveness */
+      @media (max-width: 768px) {
+        #profile, .section-container {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+
+        .section__pic-container img,
+        .about-pic {
+          width: 100%;
+          height: auto;
+        }
+
+        .about-details-container,
+        .about-containers,
+        .details-container {
+          width: 100%;
+          padding: 1rem;
+        }
+
+        .about-containers {
+          flex-direction: column;
+        }
+      }
+    </style>
   </head>
+
   <body>
+    <!-- DESKTOP NAV -->
     <nav id="desktop-nav">
       <div class="logo">Sebastian Ortuno Barrero</div>
-      <div>
-        <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </nav>
 
+    <!-- MOBILE NAV -->
     <nav id="hamburger-nav">
       <div class="logo">Sebastian Ortuno</div>
       <div class="hamburger-menu">
         <div class="hamburger-icon" onclick="toggleMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
+          <span></span><span></span><span></span>
         </div>
-        <div class="menu-links">
+        <ul class="menu-links">
           <li><a href="#about" onclick="toggleMenu()">About</a></li>
-          <li><a href="#skills" onclick="toggleMenu()">Experience</a></li>
           <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
           <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
-        </div>
+        </ul>
       </div>
     </nav>
 
+    <!-- PROFILE SECTION -->
     <section id="profile">
       <div class="section__pic-container">
-        <img src="./Serio1.png" alt="Sebastian profile picture" />
+        <img src="./Serio1.png" alt="Sebastian Profile Picture" />
       </div>
       <div class="section__text">
         <p class="section__text__p1">Hello, I'm</p>
         <h1 class="title">Sebastian Ortuno</h1>
         <p class="section__text__p2">Data Analyst</p>
+
         <div class="contact-info-upper-container">
           <div class="contact-info-container">
-            <img src="./resume.png" alt="CV icon" class="icon contact-icon" />
+            <img src="./resume.png" alt="Resume Icon" class="icon contact-icon" />
             <p><a href="./Sebastian Ortuno Resume.pdf" download>Download CV</a></p>
           </div>
-          <div class="contact-info-container"></div>
           <div class="contact-info-container">
-            <img src="./linkedinis.png" alt="LinkedIn icon" class="icon contact-icon" />
+            <img src="./linkedinis.png" alt="LinkedIn Icon" class="icon contact-icon" />
             <p><a href="https://www.linkedin.com/in/sebastian-ortuno-barrero-324382257/">LinkedIn</a></p>
           </div>
         </div>
+
         <div id="socials-container">
-          <img src="./linkedinis.png" alt="My LinkedIn profile" class="icon" onclick="location.href='https://www.linkedin.com/in/sebastian-ortuno-barrero-324382257/'" />
-          <img src="./github.png" alt="My Github profile" class="icon" onclick="location.href='https://github.com/sebastianortunio' " />
+          <img src="./linkedinis.png" class="icon" alt="LinkedIn" onclick="location.href='https://www.linkedin.com/in/sebastian-ortuno-barrero-324382257/'" />
+          <img src="./github.png" class="icon" alt="GitHub" onclick="location.href='https://github.com/sebastianortunio'" />
         </div>
       </div>
     </section>
 
+    <!-- ABOUT SECTION -->
     <section id="about">
       <p class="section__text__p1">Get To Know More</p>
       <h1 class="title">About Me</h1>
       <div class="section-container">
         <div class="section__pic-container">
-          <img src="./SebasLinkedin.png" alt="Profile picture" class="about-pic" />
+          <img src="./SebasLinkedin.png" alt="About Picture" class="about-pic" />
         </div>
         <div class="about-details-container">
           <div class="about-containers">
             <div class="details-container">
               <h3>Education</h3>
-              <p>B.Sc. Business Administration<br />Concentration: Business Management<p>Concentration: Human Resources</p>
+              <p>
+                B.Sc. Business Management<br />
+                Oakland City University, 2024<br />
+                Concentrations: Business Management, HR Management
+              </p>
+              <p>
+                M.Sc. Data Science and Analytics (Expected 2026)<br />
+                New England College
+              </p>
             </div>
           </div>
           <div class="text-container">
             <p>
-              I am a Data Analytics Master's student proficient in SQL, Python, RStudio, Tableau, Excel, and Power BI. Passionate about turning data into insights, I thrive in dynamic environments, solving real-world problems and continuously expanding my knowledge. Eager to learn and grow, I am seeking my first opportunity to contribute to data-driven decision-making within an innovative team.
+              I am a Data Analytics Master's student skilled in SQL, Python, RStudio, Tableau, Excel, and Power BI. I enjoy solving real-world problems with data and am seeking my first opportunity in an innovative team to apply data-driven decision making.
             </p>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- PROJECTS SECTION -->
     <section id="projects">
       <p class="section__text__p1">Browse My Recent</p>
       <h1 class="title">Projects</h1>
@@ -239,4 +275,3 @@
     </footer>
   </body>
 </html>
-
