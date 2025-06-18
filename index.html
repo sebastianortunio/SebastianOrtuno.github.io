@@ -7,6 +7,7 @@
     <title>Sebastian Ortuno Portfolio</title>
     <link rel="stylesheet" href="style.css" />
     <style>
+      /* Mobile Responsiveness */
       @media (max-width: 768px) {
         #profile,
         .section-container,
@@ -34,11 +35,8 @@
         }
 
         .projects-grid {
+          display: flex;
           flex-direction: column;
-        }
-
-        .details-container {
-          max-width: 90%;
         }
       }
 
@@ -53,28 +51,12 @@
       .details-container {
         flex: 1 1 calc(33.333% - 2rem);
         max-width: 300px;
-        transition: transform 0.4s ease, box-shadow 0.4s ease;
-        opacity: 0;
-        transform: translateY(30px);
-        animation: fadeInUp 0.8s forwards;
-      }
-
-      .details-container:hover {
-        transform: translateY(-8px) scale(1.02);
-        box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
-      }
-
-      @keyframes fadeInUp {
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
       }
     </style>
   </head>
 
   <body>
-    <!-- NAV -->
+    <!-- DESKTOP NAV -->
     <nav id="desktop-nav">
       <div class="logo">Data Science and Analytics Portfolio</div>
       <ul class="nav-links">
@@ -82,6 +64,21 @@
         <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
+    </nav>
+
+    <!-- MOBILE NAV -->
+    <nav id="hamburger-nav" aria-label="Mobile navigation">
+      <div class="logo"></div>
+      <div class="hamburger-menu">
+        <div class="hamburger-icon" onclick="toggleMenu()" aria-label="Toggle menu" role="button" tabindex="0">
+          <span></span><span></span><span></span>
+        </div>
+        <ul class="menu-links">
+          <li><a href="#about" onclick="toggleMenu()">About</a></li>
+          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+        </ul>
+      </div>
     </nav>
 
     <!-- PROFILE SECTION -->
@@ -93,18 +90,19 @@
         <p class="section__text__p1">Hello, I'm</p>
         <h1 class="title">Sebastian Ortuno</h1>
         <p class="section__text__p2">Data Analyst</p>
+
         <div class="contact-info-upper-container">
           <div class="contact-info-container">
-            <img src="./resume.png" class="icon contact-icon" />
+            <img src="./resume.png" alt="Resume Icon" class="icon contact-icon" />
             <p><a href="./Sebastian Ortuno Resume.pdf" download>Download CV</a></p>
           </div>
           <div class="contact-info-container">
-            <img src="./linkedinis.png" class="icon contact-icon" />
+            <img src="./linkedinis.png" alt="LinkedIn Icon" class="icon contact-icon" />
             <p><a href="https://www.linkedin.com/in/sebastian-ortuno-barrero-324382257/">LinkedIn</a></p>
           </div>
         </div>
         <div class="contact-info-container">
-          <img src="./github.png" class="icon contact-icon" />
+          <img src="./github.png" alt="Github Icon" class="icon contact-icon" />
           <p><a href="https://github.com/sebastianortunio">GitHub</a></p>
         </div>
       </div>
@@ -116,25 +114,32 @@
       <h1 class="title">About Me</h1>
       <div class="section-container">
         <div class="section__pic-container">
-          <img src="./SebasLinkedin.png" class="about-pic" />
+          <img src="./SebasLinkedin.png" alt="About Picture" class="about-pic" />
         </div>
         <div class="about-details-container">
           <div class="about-containers">
             <div class="details-container">
               <h3>Education</h3>
-              <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
-                <div style="flex: 1 1 300px;">
-                  <p><strong>B.Sc. Business Management</strong><br />Oakland City University — 2024<br /><em>Concentrations:</em> Business Management, Human Resources</p>
+              <div class="education-columns" style="display: flex; flex-wrap: wrap; gap: 2rem;">
+                <div class="edu-item" style="flex: 1 1 300px; min-width: 280px;">
+                  <p>
+                    <strong>B.Sc. Business Management</strong><br />
+                    Oakland City University — 2024<br />
+                    <em>Concentrations:</em> Business Management, Human Resources Management
+                  </p>
                 </div>
-                <div style="flex: 1 1 300px;">
-                  <p><strong>M.Sc. Data Science and Analytics</strong><br />New England College — <em>Expected 2026</em></p>
+                <div class="edu-item" style="flex: 1 1 300px; min-width: 280px;">
+                  <p>
+                    <strong>M.Sc. Data Science and Analytics</strong><br />
+                    New England College — <em>Expected 2026</em>
+                  </p>
                 </div>
               </div>
             </div>
           </div>
           <div class="text-container">
             <p>
-              I’m a Data Science and Analytics master’s student with a background in Business Management. This portfolio showcases projects using SQL, Python, R, Tableau, Excel, and Power BI. As a former student athlete, I value discipline, teamwork, and continuous growth.
+              I’m a Data Science and Analytics master’s student at New England College, graduating in 2026, with a background in Business Management. This portfolio showcases projects where I use tools like SQL, Python, R, Tableau, Excel, and Power BI to clean, analyze, and visualize data. As a former student athlete, I value discipline, teamwork, and continuous growth. I enjoy soccer, family time, and new experiences, and I’m excited to apply my skills in the analytics field.
             </p>
           </div>
         </div>
@@ -149,89 +154,89 @@
         <!-- Project 1 -->
         <div class="details-container color-container">
           <div class="article-container">
-            <img src="./project-1.png" class="project-img" />
+            <img src="./project-1.png" alt="Nashville Housing" class="project-img" />
           </div>
           <h2 class="skills-sub-title project-title">Nashville Housing Project</h2>
-          <p>I used SQL to clean and transform a Nashville housing dataset.</p>
+          I used SQL to clean and transform a Nashville housing dataset, optimizing dates, addresses, values, and removing duplicates.
           <div class="btn-container">
-            <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/sebastianortunio/Nashville-Housing'">GitHub</button>
+            <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/sebastianortunio/Nashville-Housing'">Github</button>
           </div>
         </div>
 
         <!-- Project 2 -->
         <div class="details-container color-container">
           <div class="article-container">
-            <img src="./BlinkIT.jpg" class="project-img" />
+            <img src="./BlinkIT.jpg" alt="BlinkIT Project" class="project-img" />
           </div>
-          <h2 class="skills-sub-title project-title">BlinkIT Analysis</h2>
-          <p>Grocery data analysis using Python to clean, explore, and visualize sales.</p>
+          <h2 class="skills-sub-title project-title">BlinkIT Analysis Project</h2>
+          This project analyzes BlinkIT's grocery data using Python to clean, explore, and visualize sales performance.
           <div class="btn-container">
-            <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/sebastianortunio/BlinkIT-Analysis'">GitHub</button>
-          </div>
-        </div>
-
-        <!-- Project 3 -->
-        <div class="details-container color-container">
-          <div class="article-container">
-            <img src="./Sports.png" class="project-img" />
-          </div>
-          <h2 class="skills-sub-title project-title">Sports Store Analysis</h2>
-          <p>Used SQL to analyze revenue, profit, ratings, and trends from a sports store.</p>
-          <div class="btn-container">
-            <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/sebastianortunio/Store-Sports-Analysis'">GitHub</button>
+            <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/sebastianortunio/BlinkIT-Analysis'">Github</button>
           </div>
         </div>
 
         <!-- Project 4 -->
         <div class="details-container color-container">
           <div class="article-container">
-            <img src="./Covid.png" class="project-img" />
+            <img src="./Sports.png" alt="Sports Store" class="project-img" />
           </div>
-          <h2 class="skills-sub-title project-title">COVID-19 Tableau Dashboard</h2>
-          <p>Tableau dashboard showing infection and vaccination rates across countries.</p>
+          <h2 class="skills-sub-title project-title">Sports Store Analysis</h2>
+          The project analyzed a sports analytics store's performance using SQL to calculate revenue, profit, ratings, and trends.
           <div class="btn-container">
-            <button class="btn btn-color-2 project-btn" onclick="location.href='https://public.tableau.com/app/profile/sebastian.ortuno.barrero/viz/CovidProjectVisualizations/Dashboard1?publish=yes'">Tableau</button>
+            <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/sebastianortunio/Store-Sports-Analysis'">Github</button>
           </div>
         </div>
 
         <!-- Project 5 -->
         <div class="details-container color-container">
           <div class="article-container">
-            <img src="./Sports Sales.png" class="project-img" />
+            <img src="./Covid.png" alt="Covid Project" class="project-img" />
           </div>
-          <h2 class="skills-sub-title project-title">Sports Sales Tableau Dashboard</h2>
-          <p>Sales dashboard showing orders, revenue, profit, and customer ratings.</p>
+          <h2 class="skills-sub-title project-title">Covid Analysis Tableau Dashboard</h2>
+          Tableau visualization of COVID-19 trends including death, infection, and vaccination rates.
           <div class="btn-container">
-            <button class="btn btn-color-2 project-btn" onclick="location.href='https://public.tableau.com/app/profile/sebastian.ortuno.barrero/viz/SportsSalesCustomerAnalysis/RatingsDashboard?publish=y'">Tableau</button>
+            <button class="btn btn-color-2 project-btn" onclick="location.href='https://public.tableau.com/app/profile/sebastian.ortuno.barrero/viz/CovidProjectVisualizations/Dashboard1?publish=yes'">Tableau</button>
           </div>
         </div>
 
         <!-- Project 6 -->
         <div class="details-container color-container">
           <div class="article-container">
-            <img src="./Excel.png" class="project-img" />
+            <img src="./Sports Sales.png" alt="Sports Sales" class="project-img" />
           </div>
-          <h2 class="skills-sub-title project-title">Bike Sales Excel Dashboard</h2>
-          <p>Excel dashboard with pivot tables and slicers to analyze bike sales by region.</p>
+          <h2 class="skills-sub-title project-title">Sports Sales & Customers Tableau Dashboard</h2>
+          Tableau dashboard showing orders, revenue, profit, and customer ratings.
           <div class="btn-container">
-            <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/sebastianortunio/Excel-Bikes_Sales-Project'">GitHub</button>
+            <button class="btn btn-color-2 project-btn" onclick="location.href='https://public.tableau.com/app/profile/sebastian.ortuno.barrero/viz/SportsSalesCustomerAnalysis/RatingsDashboard?publish=y'">Tableau</button>
+          </div>
+        </div>
+
+        <!-- Project 7 -->
+        <div class="details-container color-container">
+          <div class="article-container">
+            <img src="Excel.png" alt="Bike Sales" class="project-img" />
+          </div>
+          <h2 class="skills-sub-title project-title">Bike Sales Store - Excel Dashboard</h2>
+          Bike sales dashboard in Excel with pivot tables and filters by region, education, and marital status.
+          <div class="btn-container">
+            <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/sebastianortunio/Excel-Bikes_Sales-Project'">Github</button>
           </div>
         </div>
       </div>
-      <img src="./arrow.png" class="icon arrow" onclick="location.href='./#contact'" />
+      <img src="./arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#contact'" />
     </section>
 
-    <!-- CONTACT -->
+    <!-- CONTACT SECTION -->
     <section id="contact">
       <p class="section__text__p1">Get in Touch</p>
       <h1 class="title">Contact Me</h1>
       <div class="contact-info-upper-container">
         <div class="contact-info-container">
-          <img src="./emai.png" class="icon contact-icon email-icon" />
+          <img src="./emai.png" alt="Email icon" class="icon contact-icon email-icon" />
           <p><a href="mailto:sebasortuno459@gmail.com">sebasortuno459@gmail.com</a></p>
         </div>
         <div class="contact-info-container">
-          <img src="./linkedinis.png" class="icon contact-icon" />
+          <img src="./linkedinis.png" alt="LinkedIn icon" class="icon contact-icon" />
           <p><a href="https://www.linkedin.com/in/sebastian-ortuno-barrero-324382257/">LinkedIn</a></p>
         </div>
       </div>
@@ -248,12 +253,5 @@
         </div>
       </nav>
     </footer>
-
-    <script>
-      const cards = document.querySelectorAll(".details-container");
-      cards.forEach((card, i) => {
-        card.style.animationDelay = `${i * 0.15}s`;
-      });
-    </script>
   </body>
 </html>
