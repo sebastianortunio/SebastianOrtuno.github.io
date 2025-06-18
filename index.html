@@ -7,7 +7,7 @@
     <title>Sebastian Ortuno Portfolio</title>
     <link rel="stylesheet" href="style.css" />
     <style>
-      /* Mobile Responsiveness */
+      /* Responsive Design */
       @media (max-width: 768px) {
         #profile,
         .section-container,
@@ -35,8 +35,11 @@
         }
 
         .projects-grid {
-          display: flex;
           flex-direction: column;
+        }
+
+        .details-container {
+          max-width: 90%;
         }
       }
 
@@ -49,13 +52,30 @@
       }
 
       .details-container {
-        width: 300px;
+        flex: 1 1 calc(33.333% - 2rem);
+        max-width: 300px;
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 0.8s forwards;
+      }
+
+      .details-container:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
     </style>
   </head>
 
   <body>
-    <!-- DESKTOP NAV -->
+    <!-- NAV -->
     <nav id="desktop-nav">
       <div class="logo">Data Science and Analytics Portfolio</div>
       <ul class="nav-links">
@@ -63,21 +83,6 @@
         <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-    </nav>
-
-    <!-- MOBILE NAV -->
-    <nav id="hamburger-nav" aria-label="Mobile navigation">
-      <div class="logo"></div>
-      <div class="hamburger-menu">
-        <div class="hamburger-icon" onclick="toggleMenu()" aria-label="Toggle menu" role="button" tabindex="0">
-          <span></span><span></span><span></span>
-        </div>
-        <ul class="menu-links">
-          <li><a href="#about" onclick="toggleMenu()">About</a></li>
-          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
-        </ul>
-      </div>
     </nav>
 
     <!-- PROFILE SECTION -->
@@ -150,7 +155,7 @@
       <p class="section__text__p1">Browse My Recent</p>
       <h1 class="title">Projects</h1>
       <div class="projects-grid">
-        <!-- Project 1 -->
+        <!-- 1 -->
         <div class="details-container color-container">
           <div class="article-container">
             <img src="./project-1.png" alt="Nashville Housing" class="project-img" />
@@ -162,7 +167,7 @@
           </div>
         </div>
 
-        <!-- Project 2 -->
+        <!-- 2 -->
         <div class="details-container color-container">
           <div class="article-container">
             <img src="./BlinkIT.jpg" alt="BlinkIT Project" class="project-img" />
@@ -174,7 +179,7 @@
           </div>
         </div>
 
-        <!-- Project 4 -->
+        <!-- 3 -->
         <div class="details-container color-container">
           <div class="article-container">
             <img src="./Sports.png" alt="Sports Store" class="project-img" />
@@ -186,7 +191,7 @@
           </div>
         </div>
 
-        <!-- Project 5 -->
+        <!-- 4 -->
         <div class="details-container color-container">
           <div class="article-container">
             <img src="./Covid.png" alt="Covid Project" class="project-img" />
@@ -198,7 +203,7 @@
           </div>
         </div>
 
-        <!-- Project 6 -->
+        <!-- 5 -->
         <div class="details-container color-container">
           <div class="article-container">
             <img src="./Sports Sales.png" alt="Sports Sales" class="project-img" />
@@ -210,7 +215,7 @@
           </div>
         </div>
 
-        <!-- Project 7 -->
+        <!-- 6 -->
         <div class="details-container color-container">
           <div class="article-container">
             <img src="Excel.png" alt="Bike Sales" class="project-img" />
@@ -225,7 +230,7 @@
       <img src="./arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#contact'" />
     </section>
 
-    <!-- CONTACT SECTION -->
+    <!-- CONTACT -->
     <section id="contact">
       <p class="section__text__p1">Get in Touch</p>
       <h1 class="title">Contact Me</h1>
@@ -252,5 +257,13 @@
         </div>
       </nav>
     </footer>
+
+    <!-- Animation Delay Script -->
+    <script>
+      const cards = document.querySelectorAll(".details-container");
+      cards.forEach((card, i) => {
+        card.style.animationDelay = `${i * 0.15}s`;
+      });
+    </script>
   </body>
 </html>
