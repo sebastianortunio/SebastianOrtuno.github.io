@@ -132,7 +132,7 @@
       }
 
       #skills .title {
-        color: #00ffff;
+        color:rgb(255, 255, 255);
         font-weight: 700;
         margin-bottom: 2rem;
       }
@@ -193,6 +193,49 @@
           font-size: 0.75rem;
         }
       }
+
+      /* ==== New Picture Effects ==== */
+
+      /* Shared floating slow animation */
+      @keyframes floatSlow {
+        0%, 100% {
+          transform: translateY(0) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-10px) rotate(2deg);
+        }
+      }
+
+      .profile-pic-effect {
+        display: inline-block;
+        border-radius: 50%;
+        box-shadow: 0 0 20px #d4af37aa;
+        border: 6px solid #d4af37;
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+        animation: floatSlow 6s ease-in-out infinite;
+        cursor: pointer;
+        will-change: transform, box-shadow;
+        filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.6));
+        object-fit: cover;
+      }
+
+      /* On hover: scale up, rotate slightly and brighten glow */
+      .profile-pic-effect:hover {
+        animation-play-state: paused;
+        transform: scale(1.08) rotate(5deg);
+        box-shadow: 0 0 30px 4px #d4af37dd;
+        filter: drop-shadow(0 0 12px #d4af37ff);
+      }
+
+      /* Focus style */
+      .profile-pic-effect:focus {
+        outline: none;
+        animation-play-state: paused;
+        transform: scale(1.08) rotate(5deg);
+        box-shadow: 0 0 30px 4px #d4af37ff;
+        filter: drop-shadow(0 0 12px #d4af37ff);
+      }
+
     </style>
   </head>
 
@@ -233,7 +276,8 @@
     <!-- PROFILE SECTION -->
     <section id="profile">
       <div class="section__pic-container">
-        <img src="./Serio1.png" alt="Sebastian Profile Picture" />
+        <!-- Added class "profile-pic-effect" -->
+        <img src="./Serio1.png" alt="Sebastian Profile Picture" class="profile-pic-effect" />
       </div>
       <div class="section__text">
         <p class="section__text__p1">Hello, I'm</p>
@@ -263,92 +307,170 @@
     </section>
 
     <!-- ABOUT SECTION -->
-    <section id="about">
-      <p class="section__text__p1">Get To Know More</p>
-      <h1 class="title">About Me</h1>
-      <div class="section-container">
-        <div class="section__pic-container">
-          <img src="./SebasLinkedin.png" alt="About Picture" class="about-pic" />
+    <section id="about" style="padding: 2rem 1rem;">
+      <p class="section__text__p1"
+         style="color: white; font-weight: 600; letter-spacing: 2px; transition: color 0.3s;"
+         onmouseover="this.style.color='#d4af37'" onmouseout="this.style.color='white'">
+         Get To Know More
+      </p>
+
+      <h1 class="title"
+          style="color: white; font-weight: 700; margin-bottom: 2rem; transition: color 0.3s;"
+          onmouseover="this.style.color='#d4af37'" onmouseout="this.style.color='white'">
+          About Me
+      </h1>
+
+      <div class="section-container" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; align-items: flex-start; max-width: 1300px; margin: 0 auto;">
+
+        <!-- Profile Picture -->
+        <div class="section__pic-container" style="flex: 1 1 400px; display: flex; justify-content: center;">
+          <!-- Changed class from about-pic-effect to profile-pic-effect -->
+          <img src="./SebasLinkedin.png" alt="About Picture" class="profile-pic-effect"
+               style="width: 400px; height: 400px; border-radius: 50%; object-fit: cover;" />
         </div>
-        <div class="about-details-container">
-          <div class="about-containers">
-            <div class="details-container">
-              <h3>Education</h3>
-              <div class="education-columns" style="display: flex; flex-direction: column; gap: 1.5rem;">
-                <!-- Bachelor's Box -->
-                <div class="edu-item" style="border: 1px solid var(--color-primary); padding: 1rem; border-radius: 10px;">
-                  <p>
-                    <strong>B.Sc. in Business Management</strong><br />
-                    <span>Oakland City University — 2024</span><br />
-                    <em>Concentrations:</em> Business Management, Human Resources Management
-                  </p>
-                </div>
-                <!-- Master's Box -->
-                <div class="edu-item" style="border: 1px solid var(--color-primary); padding: 1rem; border-radius: 10px;">
-                  <p>
-                    <strong>M.Sc. in Data Science and Analytics</strong><br />
-                    <span>New England College — <em>Expected 2026</em></span>
-                  </p>
-                </div>
-              </div>
+
+        <!-- Education + Description -->
+        <div class="about-details-container" style="flex: 1 1 700px; display: flex; flex-direction: column; gap: 1.75rem; align-items: center;">
+
+          <!-- Education Boxes -->
+          <div class="education-row" style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
+            <!-- Box 1 -->
+            <div style="
+              flex: 1 1 200px;
+              padding: 1rem;
+              border-radius: 12px;
+              border: 2px solid #d4af37;
+              color: #d4af37;
+              font-weight: 600;
+              text-align: center;
+              font-size: 0.95rem;
+              transition: transform 0.3s ease;
+            " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+              <p style="margin: 0;">
+                <strong>B.Sc.</strong><br />
+                Business Management<br />
+                <em>Oakland City University<br />May 2024</em>
+              </p>
+            </div>
+
+            <!-- Box 2 -->
+            <div style="
+              flex: 1 1 200px;
+              padding: 1rem;
+              border-radius: 12px;
+              border: 2px solid #d4af37;
+              color: #d4af37;
+              font-weight: 600;
+              text-align: center;
+              font-size: 0.95rem;
+              transition: transform 0.3s ease;
+            " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+              <p style="margin: 0;">
+                <strong>B.Sc.</strong><br />
+                Human Resources Management<br />
+                <em>Oakland City University<br />May 2024</em>
+              </p>
+            </div>
+
+            <!-- Box 3 -->
+            <div style="
+              flex: 1 1 200px;
+              padding: 1rem;
+              border-radius: 12px;
+              border: 2px solid #d4af37;
+              color: #d4af37;
+              font-weight: 600;
+              text-align: center;
+              font-size: 0.95rem;
+              transition: transform 0.3s ease;
+            " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+              <p style="margin: 0;">
+                <strong>M.Sc.</strong><br />
+                Data Science and Analytics<br />
+                <em>New England College<br />Expected May 2026</em>
+              </p>
             </div>
           </div>
-          <div class="text-container">
+
+          <!-- Description -->
+          <div class="text-container" style="color: #f0e6c8; font-size: 0.98rem; line-height: 1.6; text-align: justify; max-width: 700px;">
+            <p style="margin-bottom: 1rem;">
+              Hello! I’m currently pursuing a Master’s degree in Data Science and Analytics at New England College, with an expected graduation in 2026. I hold Bachelor’s degree in Business Management and Human Resources, which provides me with a strong foundation in both analytical and managerial skills.
+            </p>
+            <p style="margin-bottom: 1rem;">
+              This portfolio highlights a variety of projects where I leverage tools such as SQL, Python, R, Tableau, Excel, and Power BI to clean, analyze, and visualize data effectively.
+            </p>
+            <p style="margin-bottom: 1rem;">
+              As a former student-athlete, I deeply value discipline, teamwork, and continuous personal and professional growth. Outside of data, I enjoy playing soccer, spending quality time with family, and embracing new experiences.
+            </p>
             <p>
-              Hol, I’m a Data Science and Analytics master’s student at New England College, graduating in 2026, with a background in Business Management. This portfolio showcases projects where I use tools like SQL, Python, R, Tableau, Excel, and Power BI to clean, analyze, and visualize data. As a former student athlete, I value discipline, teamwork, and continuous growth. I enjoy soccer, family time, and new experiences, and I’m excited to apply my skills in the analytics field.
+              I am enthusiastic about applying my analytical skills to drive impactful insights and solutions in the field of data analytics.
             </p>
           </div>
         </div>
       </div>
     </section>
+  </body>
+</html>
+
 
     <!-- SKILLS SECTION with images in 5x5 grid and transparent background -->
-    <section id="skills">
-      <p class="section__text__p1">What I Use</p>
-      <h1 class="title">Skills</h1>
-      <div class="skills-logos-container">
-        <div class="skill-item" title="Python">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python Logo" />
-          <span>Python</span>
-        </div>
-        <div class="skill-item" title="SQL">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL Logo" />
-          <span>SQL</span>
-        </div>
-        <div class="skill-item" title="R">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg" alt="R Logo" />
-          <span>R</span>
-        </div>
-        <div class="skill-item" title="Tableau">
-          <img src="https://cdn.worldvectorlogo.com/logos/tableau-software.svg" alt="Tableau Logo" />
-          <span>Tableau</span>
-        </div>
-        <div class="skill-item" title="Excel">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Microsoft_Excel_2013-2019_logo.svg" alt="Excel Logo" />
-          <span>Excel</span>
-        </div>
-        <div class="skill-item" title="Power BI">
-          <img src="https://cdn.worldvectorlogo.com/logos/power-bi-1.svg" alt="Power BI Logo" />
-          <span>Power BI</span>
-        </div>
-        <div class="skill-item" title="GitHub">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub Logo" />
-          <span>GitHub</span>
-        </div>
-        <div class="skill-item" title="Visual Studio">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-plain.svg" alt="Visual Studio Logo" />
-          <span>Visual Studio</span>
-        </div>
-        <div class="skill-item" title="Jupyter Notebook">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/3/38/Jupyter_logo.svg" alt="Jupyter Notebook Logo" />
-          <span>Jupyter Notebook</span>
-        </div>
-        <div class="skill-item" title="Pandas">
-          <img src="https://pandas.pydata.org/static/img/pandas_mark.svg" alt="Pandas Logo" />
-          <span>Pandas</span>
-        </div>
-      </div>
-    </section>
+<section id="skills">
+  <p class="section__text__p1"
+     style="color: white; font-weight: 600; transition: color 0.3s;"
+     onmouseover="this.style.color='#d4af37'" onmouseout="this.style.color='white'">
+     What I Use
+  </p>
+
+  <h1 class="title"
+      style="color: white; font-weight: 700; margin-bottom: 2rem; transition: color 0.3s;"
+      onmouseover="this.style.color='#d4af37'" onmouseout="this.style.color='white'">
+      Skills
+  </h1>
+
+  <div class="skills-logos-container">
+    <div class="skill-item" title="Python">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python Logo" />
+      <span>Python</span>
+    </div>
+    <div class="skill-item" title="SQL">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL Logo" />
+      <span>SQL</span>
+    </div>
+    <div class="skill-item" title="R">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg" alt="R Logo" />
+      <span>R</span>
+    </div>
+    <div class="skill-item" title="Tableau">
+      <img src="https://cdn.worldvectorlogo.com/logos/tableau-software.svg" alt="Tableau Logo" />
+      <span>Tableau</span>
+    </div>
+    <div class="skill-item" title="Excel">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Microsoft_Excel_2013-2019_logo.svg" alt="Excel Logo" />
+      <span>Excel</span>
+    </div>
+    <div class="skill-item" title="Power BI">
+      <img src="https://cdn.worldvectorlogo.com/logos/power-bi-1.svg" alt="Power BI Logo" />
+      <span>Power BI</span>
+    </div>
+    <div class="skill-item" title="GitHub">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub Logo" />
+      <span>GitHub</span>
+    </div>
+    <div class="skill-item" title="Visual Studio">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-plain.svg" alt="Visual Studio Logo" />
+      <span>Visual Studio</span>
+    </div>
+    <div class="skill-item" title="Jupyter Notebook">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/38/Jupyter_logo.svg" alt="Jupyter Notebook Logo" />
+      <span>Jupyter Notebook</span>
+    </div>
+    <div class="skill-item" title="Pandas">
+      <img src="https://pandas.pydata.org/static/img/pandas_mark.svg" alt="Pandas Logo" />
+      <span>Pandas</span>
+    </div>
+  </div>
+</section>
 
 
     <!-- PROJECTS SECTION -->
