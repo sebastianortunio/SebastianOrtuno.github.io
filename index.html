@@ -438,16 +438,7 @@
       Skills
   </h1>
 
-  <div class="skills-logos-container" style="
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 2rem;
-    width: 100%;
-    max-width: 100%;
-    padding: 0 2rem;
-    box-sizing: border-box;
-    justify-items: center;
-  ">
+  <div class="skills-logos-container">
     <!-- Row 1 -->
     <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" /><span>Python</span></div>
     <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL" /><span>SQL</span></div>
@@ -455,7 +446,7 @@
     <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg" alt="R" /><span>R</span></div>
     <div class="skill-item"><img src="https://cdn.worldvectorlogo.com/logos/tableau-software.svg" alt="Tableau" /><span>Tableau</span></div>
     <div class="skill-item">
-      <img src="https://deltalyz.com/wp-content/uploads/2023/02/Microsoft-Power-BI-Symbol.png" alt="Power BI" style="width: 60%; height: auto;" />
+      <img src="https://deltalyz.com/wp-content/uploads/2023/02/Microsoft-Power-BI-Symbol.png" alt="Power BI" />
       <span>Power BI</span>
     </div>
 
@@ -469,6 +460,16 @@
   </div>
 
   <style>
+    .skills-logos-container {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 2rem;
+      width: 100%;
+      padding: 0 2rem;
+      box-sizing: border-box;
+      justify-items: center;
+    }
+
     .skill-item {
       position: relative;
       width: 100px;
