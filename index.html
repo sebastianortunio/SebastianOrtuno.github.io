@@ -51,15 +51,164 @@
       .details-container {
         width: 300px;
       }
+
+      /* Star background canvas styles */
+      body {
+        margin: 0;
+        overflow-x: hidden;
+        position: relative;
+        background: black;
+        color: white;
+        font-family: 'Segoe UI', sans-serif;
+      }
+      #stars-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -2;
+        pointer-events: none;
+      }
+
+      /* Floating code snippets container */
+      #floating-codes {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        pointer-events: none;
+        overflow: visible;
+        z-index: -1;
+        font-family: monospace;
+        color: #7fffd4; /* aquamarine */
+        user-select: none;
+      }
+
+      .floating-code {
+        position: absolute;
+        font-size: 0.8rem;
+        opacity: 0.15;
+        white-space: nowrap;
+        animation-timing-function: linear;
+      }
+
+      .code-math {
+        color: #ffd700; /* gold */
+        font-weight: bold;
+      }
+
+      .code-sql {
+        color: #00ff7f; /* springgreen */
+        font-weight: bold;
+      }
+
+      .code-python {
+        color: #1e90ff; /* dodgerblue */
+        font-weight: bold;
+      }
+
+      .code-r {
+        color: #ff69b4; /* hotpink */
+        font-weight: bold;
+      }
+
+      /* Skills Section Styling with images */
+      #skills {
+        padding: 1rem 1rem 2rem 1rem;
+        max-width: 100vw;
+        margin: 3rem auto;
+        text-align: center;
+        /* no background so stars show through */
+        height: 350px; /* un poco más corta */
+      }
+
+      #skills p.section__text__p1 {
+        color: #00ffff;
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+        letter-spacing: 2px;
+      }
+
+      #skills .title {
+        color: #00ffff;
+        font-weight: 700;
+        margin-bottom: 2rem;
+      }
+
+      .skills-logos-container {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(5, auto);
+        gap: 1rem 1.5rem;
+        justify-items: center;
+        align-items: center;
+        width: 100%;
+        max-width: 100vw;
+        margin: 0 auto;
+      }
+
+      .skill-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: #7fffd4;
+        font-weight: 600;
+        font-size: 0.85rem;
+        user-select: none;
+        cursor: default;
+      }
+
+      .skill-item img {
+        width: 60px;
+        height: 60px;
+        object-fit: contain;
+        filter: drop-shadow(0 0 6px #00ffffaa);
+        transition: transform 0.3s ease, filter 0.3s ease;
+      }
+
+      .skill-item:hover img {
+        transform: scale(1.15);
+        filter: drop-shadow(0 0 12px #00ffffee);
+      }
+
+      /* Responsive */
+      @media (max-width: 480px) {
+        #skills {
+          height: auto; /* dejar que crezca en móvil */
+        }
+
+        .skills-logos-container {
+          grid-template-columns: repeat(3, 1fr);
+          gap: 0.75rem 1rem;
+        }
+
+        .skill-item img {
+          width: 50px;
+          height: 50px;
+        }
+
+        .skill-item {
+          font-size: 0.75rem;
+        }
+      }
     </style>
   </head>
 
   <body>
+    <!-- STAR BACKGROUND CANVAS -->
+    <canvas id="stars-bg"></canvas>
+
+    <!-- Floating code snippets -->
+    <div id="floating-codes"></div>
+
     <!-- DESKTOP NAV -->
     <nav id="desktop-nav">
       <div class="logo">Data Science and Analytics Portfolio</div>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -74,196 +223,246 @@
         </div>
         <ul class="menu-links">
           <li><a href="#about" onclick="toggleMenu()">About</a></li>
+          <li><a href="#skills" onclick="toggleMenu()">Skills</a></li>
           <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
           <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
         </ul>
       </div>
     </nav>
 
-   <!-- PROFILE SECTION -->
-<section id="profile">
-  <div class="section__pic-container">
-    <img src="./Serio1.png" alt="Sebastian Profile Picture" />
-  </div>
-  <div class="section__text">
-    <p class="section__text__p1">Hello, I'm</p>
-    <h1 class="title">Sebastian Ortuno</h1>
-    <p class="section__text__p2">Data Analyst</p>
-
-    <!-- Combined Contact Box -->
-    <div class="contact-info-upper-container">
-      <div class="contact-info-container" style="display: flex; flex-direction: column; align-items: center;">
-        <div style="display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center;">
-          <div style="display: flex; align-items: center; gap: 0.5rem;">
-            <img src="./resume.png" alt="Resume Icon" class="icon contact-icon" />
-            <p><a href="./Sebastian Ortuno Resume.pdf" download>Download CV</a></p>
-          </div>
-          <div style="display: flex; align-items: center; gap: 0.5rem;">
-            <img src="./linkedinis.png" alt="LinkedIn Icon" class="icon contact-icon" />
-            <p><a href="https://www.linkedin.com/in/sebastian-ortuno-barrero-324382257/">LinkedIn</a></p>
-          </div>
-          <div style="display: flex; align-items: center; gap: 0.5rem;">
-            <img src="./github.png" alt="Github Icon" class="icon contact-icon" />
-            <p><a href="https://github.com/sebastianortunio">GitHub</a></p>
-          </div>
-        </div>
+    <!-- PROFILE SECTION -->
+    <section id="profile">
+      <div class="section__pic-container">
+        <img src="./Serio1.png" alt="Sebastian Profile Picture" />
       </div>
-    </div>
-  </div>
-</section>
+      <div class="section__text">
+        <p class="section__text__p1">Hello, I'm</p>
+        <h1 class="title">Sebastian Ortuno</h1>
+        <p class="section__text__p2">Data Analyst</p>
 
-
- <!-- ABOUT SECTION -->
-<section id="about">
-  <p class="section__text__p1">Get To Know More</p>
-  <h1 class="title">About Me</h1>
-  <div class="section-container">
-    <div class="section__pic-container">
-      <img src="./SebasLinkedin.png" alt="About Picture" class="about-pic" />
-    </div>
-    <div class="about-details-container">
-      <div class="about-containers">
-        <div class="details-container">
-          <h3>Education</h3>
-          <div class="education-columns" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
-            <div class="edu-item">
-              <p>
-                <strong>B.Sc. in Business Management</strong><br />
-                <span>Oakland City University — 2024</span><br />
-                <em>Concentrations:</em> Business Management, Human Resources Management
-              </p>
-            </div>
-            <div class="edu-item">
-              <p>
-                <strong>M.Sc. in Data Science and Analytics</strong><br />
-                <span>New England College — <em>Expected 2026</em></span>
-              </p>
+        <!-- Combined Contact Box -->
+        <div class="contact-info-upper-container">
+          <div class="contact-info-container" style="display: flex; flex-direction: column; align-items: center;">
+            <div style="display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center;">
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <img src="./resume.png" alt="Resume Icon" class="icon contact-icon" />
+                <p><a href="./Sebastian Ortuno Resume.pdf" download>Download CV</a></p>
+              </div>
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <img src="./linkedinis.png" alt="LinkedIn Icon" class="icon contact-icon" />
+                <p><a href="https://www.linkedin.com/in/sebastian-ortuno-barrero-324382257/">LinkedIn</a></p>
+              </div>
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <img src="./github.png" alt="Github Icon" class="icon contact-icon" />
+                <p><a href="https://github.com/sebastianortunio">GitHub</a></p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="text-container">
-        <p>
-          Hol, I’m a Data Science and Analytics master’s student at New England College, graduating in 2026, with a background in Business Management. This portfolio showcases projects where I use tools like SQL, Python, R, Tableau, Excel, and Power BI to clean, analyze, and visualize data. As a former student athlete, I value discipline, teamwork, and continuous growth. I enjoy soccer, family time, and new experiences, and I’m excited to apply my skills in the analytics field.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-    
-  <!-- PROJECTS SECTION -->
-<section id="projects">
-  <p class="section__text__p1">Browse My Recent</p>
-  <h1 class="title">Projects</h1>
-  <style>
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-      justify-items: center;
-      margin-top: 2rem;
-    }
+    </section>
 
-    @media (max-width: 1024px) {
-      .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
+    <!-- ABOUT SECTION -->
+    <section id="about">
+      <p class="section__text__p1">Get To Know More</p>
+      <h1 class="title">About Me</h1>
+      <div class="section-container">
+        <div class="section__pic-container">
+          <img src="./SebasLinkedin.png" alt="About Picture" class="about-pic" />
+        </div>
+        <div class="about-details-container">
+          <div class="about-containers">
+            <div class="details-container">
+              <h3>Education</h3>
+              <div class="education-columns" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                <!-- Bachelor's Box -->
+                <div class="edu-item" style="border: 1px solid var(--color-primary); padding: 1rem; border-radius: 10px;">
+                  <p>
+                    <strong>B.Sc. in Business Management</strong><br />
+                    <span>Oakland City University — 2024</span><br />
+                    <em>Concentrations:</em> Business Management, Human Resources Management
+                  </p>
+                </div>
+                <!-- Master's Box -->
+                <div class="edu-item" style="border: 1px solid var(--color-primary); padding: 1rem; border-radius: 10px;">
+                  <p>
+                    <strong>M.Sc. in Data Science and Analytics</strong><br />
+                    <span>New England College — <em>Expected 2026</em></span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="text-container">
+            <p>
+              Hol, I’m a Data Science and Analytics master’s student at New England College, graduating in 2026, with a background in Business Management. This portfolio showcases projects where I use tools like SQL, Python, R, Tableau, Excel, and Power BI to clean, analyze, and visualize data. As a former student athlete, I value discipline, teamwork, and continuous growth. I enjoy soccer, family time, and new experiences, and I’m excited to apply my skills in the analytics field.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    @media (max-width: 768px) {
-      .projects-grid {
-        grid-template-columns: 1fr;
-      }
-    }
+    <!-- SKILLS SECTION with images in 5x5 grid and transparent background -->
+    <section id="skills">
+      <p class="section__text__p1">What I Use</p>
+      <h1 class="title">Skills</h1>
+      <div class="skills-logos-container">
+        <div class="skill-item" title="Python">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python Logo" />
+          <span>Python</span>
+        </div>
+        <div class="skill-item" title="SQL">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL Logo" />
+          <span>SQL</span>
+        </div>
+        <div class="skill-item" title="R">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg" alt="R Logo" />
+          <span>R</span>
+        </div>
+        <div class="skill-item" title="Tableau">
+          <img src="https://cdn.worldvectorlogo.com/logos/tableau-software.svg" alt="Tableau Logo" />
+          <span>Tableau</span>
+        </div>
+        <div class="skill-item" title="Excel">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Microsoft_Excel_2013-2019_logo.svg" alt="Excel Logo" />
+          <span>Excel</span>
+        </div>
+        <div class="skill-item" title="Power BI">
+          <img src="https://cdn.worldvectorlogo.com/logos/power-bi-1.svg" alt="Power BI Logo" />
+          <span>Power BI</span>
+        </div>
+        <div class="skill-item" title="GitHub">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub Logo" />
+          <span>GitHub</span>
+        </div>
+        <div class="skill-item" title="Visual Studio">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-plain.svg" alt="Visual Studio Logo" />
+          <span>Visual Studio</span>
+        </div>
+        <div class="skill-item" title="Jupyter Notebook">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/3/38/Jupyter_logo.svg" alt="Jupyter Notebook Logo" />
+          <span>Jupyter Notebook</span>
+        </div>
+        <div class="skill-item" title="Pandas">
+          <img src="https://pandas.pydata.org/static/img/pandas_mark.svg" alt="Pandas Logo" />
+          <span>Pandas</span>
+        </div>
+      </div>
+    </section>
 
-    .details-container {
-      width: 100%;
-      max-width: 300px;
-    }
-  </style>
 
-  <div class="projects-grid">
-    <!-- Project 1 -->
-    <div class="details-container color-container">
-      <div class="article-container">
-        <img src="./project-1.png" alt="Nashville Housing" class="project-img" />
-      </div>
-      <h2 class="skills-sub-title project-title">SQL-Nashville Housing Project</h2>
-      I used SQL to clean and transform a Nashville housing dataset, optimizing dates, addresses, values, and removing duplicates.
-      <div class="btn-container">
-        <button class="btn btn-color-2 project-btn"
-          onclick="location.href='https://github.com/sebastianortunio/Nashville-Housing'">Github</button>
-      </div>
-    </div>
+    <!-- PROJECTS SECTION -->
+    <section id="projects">
+      <p class="section__text__p1">Browse My Recent</p>
+      <h1 class="title">Projects</h1>
+      <style>
+        .projects-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 2rem;
+          justify-items: center;
+          margin-top: 2rem;
+        }
 
-    <!-- Project 2 -->
-    <div class="details-container color-container">
-      <div class="article-container">
-        <img src="./BlinkIT.jpg" alt="BlinkIT Project" class="project-img" />
-      </div>
-      <h2 class="skills-sub-title project-title">Python-BlinkIT Analysis Project</h2>
-      This project analyzes BlinkIT's grocery data using Python to clean, explore, and visualize sales performance.
-      <div class="btn-container">
-        <button class="btn btn-color-2 project-btn"
-          onclick="location.href='https://github.com/sebastianortunio/BlinkIT-Analysis'">Github</button>
-      </div>
-    </div>
+        @media (max-width: 1024px) {
+          .projects-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
 
-    <!-- Project 3 -->
-    <div class="details-container color-container">
-      <div class="article-container">
-        <img src="./Sports.png" alt="Sports Store" class="project-img" />
-      </div>
-      <h2 class="skills-sub-title project-title">R-Tableau-Sports Store Analysis</h2>
-      The project analyzed a sports analytics store's performance using R and Tableau to calculate revenue, profit, ratings, and trends.
-      <div class="btn-container">
-        <button class="btn btn-color-2 project-btn"
-          onclick="location.href='https://github.com/sebastianortunio/Store-Sports-Analysis'">Github</button>
-      </div>
-    </div>
+        @media (max-width: 768px) {
+          .projects-grid {
+            grid-template-columns: 1fr;
+          }
+        }
 
-    <!-- Project 4 -->
-    <div class="details-container color-container">
-      <div class="article-container">
-        <img src="./Covid.png" alt="Covid Project" class="project-img" />
-      </div>
-      <h2 class="skills-sub-title project-title">Covid Analysis Tableau Dashboard</h2>
-      Tableau visualization of COVID-19 trends including death, infection, and vaccination rates.
-      <div class="btn-container">
-        <button class="btn btn-color-2 project-btn"
-          onclick="location.href='https://public.tableau.com/app/profile/sebastian.ortuno.barrero/viz/CovidProjectVisualizations/Dashboard1?publish=yes'">Tableau</button>
-      </div>
-    </div>
+        .details-container {
+          width: 100%;
+          max-width: 300px;
+        }
+      </style>
 
-    <!-- Project 5 -->
-    <div class="details-container color-container">
-      <div class="article-container">
-        <img src="./Sports Sales.png" alt="Sports Sales" class="project-img" />
-      </div>
-      <h2 class="skills-sub-title project-title">Sports Sales & Customers Tableau Dashboard</h2>
-      Tableau dashboard showing orders, revenue, profit, and customer ratings.
-      <div class="btn-container">
-        <button class="btn btn-color-2 project-btn"
-          onclick="location.href='https://public.tableau.com/app/profile/sebastian.ortuno.barrero/viz/SportsSalesCustomerAnalysis/RatingsDashboard?publish=y'">Tableau</button>
-      </div>
-    </div>
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="details-container color-container">
+          <div class="article-container">
+            <img src="./project-1.png" alt="Nashville Housing" class="project-img" />
+          </div>
+          <h2 class="skills-sub-title project-title">SQL-Nashville Housing Project</h2>
+          I used SQL to clean and transform a Nashville housing dataset, optimizing dates, addresses, values, and removing duplicates.
+          <div class="btn-container">
+            <button class="btn btn-color-2 project-btn"
+              onclick="location.href='https://github.com/sebastianortunio/Nashville-Housing'">Github</button>
+          </div>
+        </div>
 
-    <!-- Project 6 -->
-    <div class="details-container color-container">
-      <div class="article-container">
-        <img src="Excel.png" alt="Bike Sales" class="project-img" />
-      </div>
-      <h2 class="skills-sub-title project-title">Excel-Bike Sales Store</h2>
-      Bike sales dashboard in Excel with pivot tables, interactive dashboard and filters by region, education, and marital status.
-      <div class="btn-container">
-        <button class="btn btn-color-2 project-btn"
-          onclick="location.href='https://github.com/sebastianortunio/Excel-Bikes_Sales-Project'">Github</button>
-      </div>
-    </div>
-  </div>
-  <img src="./arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#contact'" />
-</section>
+        <!-- Project 2 -->
+        <div class="details-container color-container">
+          <div class="article-container">
+            <img src="./BlinkIT.jpg" alt="BlinkIT Project" class="project-img" />
+          </div>
+          <h2 class="skills-sub-title project-title">Python-BlinkIT Analysis Project</h2>
+          This project analyzes BlinkIT's grocery data using Python to clean, explore, and visualize sales performance.
+          <div class="btn-container">
+            <button class="btn btn-color-2 project-btn"
+              onclick="location.href='https://github.com/sebastianortunio/BlinkIT-Analysis'">Github</button>
+          </div>
+        </div>
 
+        <!-- Project 3 -->
+        <div class="details-container color-container">
+          <div class="article-container">
+            <img src="./Sports.png" alt="Sports Store" class="project-img" />
+          </div>
+          <h2 class="skills-sub-title project-title">R-Tableau-Sports Store Analysis</h2>
+          The project analyzed a sports analytics store's performance using R and Tableau to calculate revenue, profit, ratings, and trends.
+          <div class="btn-container">
+            <button class="btn btn-color-2 project-btn"
+              onclick="location.href='https://github.com/sebastianortunio/Store-Sports-Analysis'">Github</button>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="details-container color-container">
+          <div class="article-container">
+            <img src="./Covid.png" alt="Covid Project" class="project-img" />
+          </div>
+          <h2 class="skills-sub-title project-title">Covid Analysis Tableau Dashboard</h2>
+          Tableau visualization of COVID-19 trends including death, infection, and vaccination rates.
+          <div class="btn-container">
+            <button class="btn btn-color-2 project-btn"
+              onclick="location.href='https://public.tableau.com/app/profile/sebastian.ortuno.barrero/viz/CovidProjectVisualizations/Dashboard1?publish=yes'">Tableau</button>
+          </div>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="details-container color-container">
+          <div class="article-container">
+            <img src="./Sports Sales.png" alt="Sports Sales" class="project-img" />
+          </div>
+          <h2 class="skills-sub-title project-title">Sports Sales & Customers Tableau Dashboard</h2>
+          Tableau dashboard showing orders, revenue, profit, and customer ratings.
+          <div class="btn-container">
+            <button class="btn btn-color-2 project-btn"
+              onclick="location.href='https://public.tableau.com/app/profile/sebastian.ortuno.barrero/viz/SportsSalesCustomerAnalysis/RatingsDashboard?publish=y'">Tableau</button>
+          </div>
+        </div>
+
+        <!-- Project 6 -->
+        <div class="details-container color-container">
+          <div class="article-container">
+            <img src="Excel.png" alt="Bike Sales" class="project-img" />
+          </div>
+          <h2 class="skills-sub-title project-title">Excel-Bike Sales Store</h2>
+          Bike sales dashboard in Excel showing revenue and profit, filtering by region, education, and marital status.
+          <div class="btn-container">
+            <button class="btn btn-color-2 project-btn"
+              onclick="location.href='https://github.com/sebastianortunio/Excel-Bikes_Sales-Project'">Github</button>
+          </div>
+        </div>
+      </div>
+      <img src="./arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#contact'" />
+    </section>
 
     <!-- CONTACT SECTION -->
     <section id="contact">
@@ -286,11 +485,167 @@
         <div class="nav-links-container">
           <ul class="nav-links">
             <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
       </nav>
     </footer>
+
+    <script>
+      const canvas = document.getElementById("stars-bg");
+      const ctx = canvas.getContext("2d");
+
+      let stars = [], numStars = 150;
+
+      function drawStar(x, y, r, type, color = "white") {
+        ctx.fillStyle = color;
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        if (type === "circle") {
+          ctx.arc(x, y, r, 0, Math.PI * 2);
+          ctx.fill();
+        } else if (type === "cross") {
+          ctx.moveTo(x - r, y);
+          ctx.lineTo(x + r, y);
+          ctx.moveTo(x, y - r);
+          ctx.lineTo(x, y + r);
+          ctx.stroke();
+        } else if (type === "plus") {
+          ctx.lineWidth = 2;
+          ctx.moveTo(x - r, y);
+          ctx.lineTo(x + r, y);
+          ctx.moveTo(x, y - r);
+          ctx.lineTo(x, y + r);
+          ctx.stroke();
+        }
+      }
+
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+
+      function randomStarType() {
+        let rnd = Math.random();
+        if (rnd < 0.6) return "circle";
+        else if (rnd < 0.85) return "cross";
+        else return "plus";
+      }
+
+      function initStars() {
+        stars = [];
+        for (let i = 0; i < numStars; i++) {
+          stars.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            r: 0.8 + Math.random() * 1.2,
+            dx: (Math.random() - 0.5) * 0.3,
+            dy: (Math.random() - 0.5) * 0.3,
+            type: randomStarType(),
+            color: "white"
+          });
+        }
+      }
+
+      function drawStars() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (let star of stars) {
+          drawStar(star.x, star.y, star.r, star.type, star.color);
+          star.x += star.dx;
+          star.y += star.dy;
+
+          if (star.x < 0) star.x = canvas.width;
+          else if (star.x > canvas.width) star.x = 0;
+          if (star.y < 0) star.y = canvas.height;
+          else if (star.y > canvas.height) star.y = 0;
+        }
+        requestAnimationFrame(drawStars);
+      }
+
+      const floatingCodesContainer = document.getElementById("floating-codes");
+      const codes = [
+        { text: "SELECT * FROM table WHERE age > 30;", type: "sql" },
+        { text: "def clean_data(df):", type: "python" },
+        { text: "lm <- lm(y ~ x, data=dataset)", type: "r" },
+        { text: "∫ x² dx = (1/3)x³ + C", type: "math" },
+        { text: "for i in range(10): print(i)", type: "python" },
+        { text: "UPDATE users SET active=1;", type: "sql" },
+        { text: "sqrt(16) = 4", type: "math" },
+        { text: "plot(x, y, col='blue')", type: "r" },
+        { text: "print('Hello World')", type: "python" },
+        { text: "SELECT COUNT(*) FROM sales;", type: "sql" },
+        { text: "∑_{i=1}^n i = n(n+1)/2", type: "math" },
+        { text: "data.frame(x=1:5, y=6:10)", type: "r" }
+      ];
+
+      const floatingCodeElements = [];
+
+      function createFloatingCodeElement(codeObj) {
+        const span = document.createElement("span");
+        span.classList.add("floating-code");
+        span.classList.add(`code-${codeObj.type}`);
+        span.textContent = codeObj.text;
+        span.style.top = Math.random() * window.innerHeight + "px";
+        span.style.left = Math.random() * window.innerWidth + "px";
+        span.speedX = (Math.random() - 0.5) * 0.15;
+        span.speedY = (Math.random() - 0.5) * 0.1;
+        floatingCodesContainer.appendChild(span);
+        return span;
+      }
+
+      function initFloatingCodes() {
+        for (let code of codes) {
+          const el = createFloatingCodeElement(code);
+          floatingCodeElements.push(el);
+        }
+      }
+
+      function animateFloatingCodes() {
+        for (let el of floatingCodeElements) {
+          let top = parseFloat(el.style.top);
+          let left = parseFloat(el.style.left);
+
+          top += el.speedY;
+          left += el.speedX;
+
+          if (top > window.innerHeight) top = 0;
+          else if (top < 0) top = window.innerHeight;
+          if (left > window.innerWidth) left = 0;
+          else if (left < 0) left = window.innerWidth;
+
+          el.style.top = top + "px";
+          el.style.left = left + "px";
+        }
+        requestAnimationFrame(animateFloatingCodes);
+      }
+
+      window.addEventListener("resize", () => {
+        resizeCanvas();
+        initStars();
+        for (let el of floatingCodeElements) {
+          el.style.top = Math.random() * window.innerHeight + "px";
+          el.style.left = Math.random() * window.innerWidth + "px";
+        }
+      });
+
+      resizeCanvas();
+      initStars();
+      drawStars();
+      initFloatingCodes();
+      animateFloatingCodes();
+
+      function toggleMenu() {
+        const menu = document.querySelector("#hamburger-nav .menu-links");
+        if (!menu) return;
+        if (menu.style.display === "block") {
+          menu.style.display = "none";
+        } else {
+          menu.style.display = "block";
+        }
+      }
+    </script>
   </body>
 </html>
