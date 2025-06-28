@@ -200,13 +200,16 @@
       @keyframes floatSlow {
         0%, 100% {
           transform: translateY(0) rotate(0deg);
+          filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.6));
         }
         50% {
           transform: translateY(-10px) rotate(2deg);
+          filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.9));
         }
       }
 
-      .profile-pic-effect {
+      .profile-pic-effect,
+      .about-pic-effect {
         display: inline-block;
         border-radius: 50%;
         box-shadow: 0 0 20px #d4af37aa;
@@ -215,20 +218,27 @@
         animation: floatSlow 6s ease-in-out infinite;
         cursor: pointer;
         will-change: transform, box-shadow;
-        filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.6));
+      }
+
+      /* Override existing inline style for border-radius on about-pic to apply this */
+      .about-pic-effect {
         object-fit: cover;
+        width: 400px;
+        height: 400px;
       }
 
       /* On hover: scale up, rotate slightly and brighten glow */
-      .profile-pic-effect:hover {
+      .profile-pic-effect:hover,
+      .about-pic-effect:hover {
         animation-play-state: paused;
         transform: scale(1.08) rotate(5deg);
         box-shadow: 0 0 30px 4px #d4af37dd;
         filter: drop-shadow(0 0 12px #d4af37ff);
       }
 
-      /* Focus style */
-      .profile-pic-effect:focus {
+      /* Also add subtle subtle shadow glow on focus for accessibility */
+      .profile-pic-effect:focus,
+      .about-pic-effect:focus {
         outline: none;
         animation-play-state: paused;
         transform: scale(1.08) rotate(5deg);
@@ -324,9 +334,9 @@
 
         <!-- Profile Picture -->
         <div class="section__pic-container" style="flex: 1 1 400px; display: flex; justify-content: center;">
-          <!-- Changed class from about-pic-effect to profile-pic-effect -->
-          <img src="./SebasLinkedin.png" alt="About Picture" class="profile-pic-effect"
-               style="width: 400px; height: 400px; border-radius: 50%; object-fit: cover;" />
+          <!-- Added class "about-pic-effect" -->
+          <img src="./SebasLinkedin.png" alt="About Picture" class="about-pic about-pic-effect"
+               style="border-radius: 50%; object-fit: cover;" />
         </div>
 
         <!-- Education + Description -->
@@ -414,63 +424,118 @@
 </html>
 
 
-    <!-- SKILLS SECTION with images in 5x5 grid and transparent background -->
-<section id="skills">
+<!-- SKILLS SECTION with your requested Power BI logo -->
+<section id="skills" style="padding: 4rem 1rem; background: transparent;">
   <p class="section__text__p1"
-     style="color: white; font-weight: 600; transition: color 0.3s;"
+     style="color: white; font-weight: 600; letter-spacing: 2px; transition: color 0.3s; text-align: center;"
      onmouseover="this.style.color='#d4af37'" onmouseout="this.style.color='white'">
      What I Use
   </p>
 
   <h1 class="title"
-      style="color: white; font-weight: 700; margin-bottom: 2rem; transition: color 0.3s;"
+      style="color: white; font-weight: 700; margin-bottom: 3rem; text-align: center; transition: color 0.3s;"
       onmouseover="this.style.color='#d4af37'" onmouseout="this.style.color='white'">
       Skills
   </h1>
 
-  <div class="skills-logos-container">
-    <div class="skill-item" title="Python">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python Logo" />
-      <span>Python</span>
-    </div>
-    <div class="skill-item" title="SQL">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL Logo" />
-      <span>SQL</span>
-    </div>
-    <div class="skill-item" title="R">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg" alt="R Logo" />
-      <span>R</span>
-    </div>
-    <div class="skill-item" title="Tableau">
-      <img src="https://cdn.worldvectorlogo.com/logos/tableau-software.svg" alt="Tableau Logo" />
-      <span>Tableau</span>
-    </div>
-    <div class="skill-item" title="Excel">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Microsoft_Excel_2013-2019_logo.svg" alt="Excel Logo" />
-      <span>Excel</span>
-    </div>
-    <div class="skill-item" title="Power BI">
-      <img src="https://cdn.worldvectorlogo.com/logos/power-bi-1.svg" alt="Power BI Logo" />
+  <div class="skills-logos-container" style="
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 2rem;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 2rem;
+    box-sizing: border-box;
+    justify-items: center;
+  ">
+    <!-- Row 1 -->
+    <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" /><span>Python</span></div>
+    <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL" /><span>SQL</span></div>
+    <div class="skill-item"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968342.png" alt="SSMS" /><span>SSMS</span></div>
+    <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg" alt="R" /><span>R</span></div>
+    <div class="skill-item"><img src="https://cdn.worldvectorlogo.com/logos/tableau-software.svg" alt="Tableau" /><span>Tableau</span></div>
+    <div class="skill-item">
+      <img src="https://deltalyz.com/wp-content/uploads/2023/02/Microsoft-Power-BI-Symbol.png" alt="Power BI" style="width: 60%; height: auto;" />
       <span>Power BI</span>
     </div>
-    <div class="skill-item" title="GitHub">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub Logo" />
-      <span>GitHub</span>
-    </div>
-    <div class="skill-item" title="Visual Studio">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-plain.svg" alt="Visual Studio Logo" />
-      <span>Visual Studio</span>
-    </div>
-    <div class="skill-item" title="Jupyter Notebook">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/38/Jupyter_logo.svg" alt="Jupyter Notebook Logo" />
-      <span>Jupyter Notebook</span>
-    </div>
-    <div class="skill-item" title="Pandas">
-      <img src="https://pandas.pydata.org/static/img/pandas_mark.svg" alt="Pandas Logo" />
-      <span>Pandas</span>
-    </div>
+
+    <!-- Row 2 -->
+    <div class="skill-item"><img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Microsoft_Excel_2013-2019_logo.svg" alt="Excel" /><span>Excel</span></div>
+    <div class="skill-item"><img src="https://img.icons8.com/fluency/512/artificial-intelligence.png" alt="ML" /><span>Machine Learning</span></div>
+    <div class="skill-item"><img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="GitHub Alt" /><span>GitHub</span></div>
+    <div class="skill-item"><img src="https://upload.wikimedia.org/wikipedia/commons/3/38/Jupyter_logo.svg" alt="Jupyter" /><span>Jupyter Notebook</span></div>
+    <div class="skill-item"><img src="https://pandas.pydata.org/static/img/pandas_mark.svg" alt="Pandas" /><span>Pandas</span></div>
+    <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-plain.svg" alt="Visual Studio" /><span>Visual Studio</span></div>
   </div>
+
+  <style>
+    .skill-item {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: transform 0.3s ease;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .skill-item:hover {
+      transform: scale(1.1);
+    }
+
+    .skill-item img {
+      width: 60%;
+      height: auto;
+      transition: opacity 0.3s ease;
+    }
+
+    .skill-item span {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      color: #d4af37;
+      font-size: 0.85rem;
+      padding: 0.4rem 0;
+      background-color: rgba(0, 0, 0, 0.85);
+      opacity: 0;
+      transform: translateY(100%);
+      transition: all 0.4s ease;
+    }
+
+    .skill-item:hover span {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1024px) {
+      .skills-logos-container {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .skills-logos-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .skill-item {
+        width: 80px;
+        height: 80px;
+      }
+
+      .skill-item span {
+        font-size: 0.7rem;
+      }
+    }
+  </style>
 </section>
+
 
 
     <!-- PROJECTS SECTION -->
@@ -586,21 +651,153 @@
       <img src="./arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#contact'" />
     </section>
 
-    <!-- CONTACT SECTION -->
-    <section id="contact">
-      <p class="section__text__p1">Get in Touch</p>
-      <h1 class="title">Contact Me</h1>
-      <div class="contact-info-upper-container">
-        <div class="contact-info-container">
-          <img src="./emai.png" alt="Email icon" class="icon contact-icon email-icon" />
-          <p><a href="mailto:sebasortuno459@gmail.com">sebasortuno459@gmail.com</a></p>
-        </div>
-        <div class="contact-info-container">
-          <img src="./linkedinis.png" alt="LinkedIn icon" class="icon contact-icon" />
-          <p><a href="https://www.linkedin.com/in/sebastian-ortuno-barrero-324382257/">LinkedIn</a></p>
-        </div>
+ <!-- CONTACT SECTION -->
+<section id="contact" style="padding: 2rem 1rem; max-width: 600px; margin: 0 auto; color: white; font-family: 'Segoe UI', sans-serif; 
+  background:
+    linear-gradient(135deg, rgba(212, 175, 55, 0.05) 25%, transparent 25%) -50px 0,
+    linear-gradient(225deg, rgba(212, 175, 55, 0.05) 25%, transparent 25%) -50px 0,
+    linear-gradient(315deg, rgba(212, 175, 55, 0.05) 25%, transparent 25%),
+    linear-gradient(45deg, rgba(212, 175, 55, 0.05) 25%, transparent 25%);
+  background-size: 100px 100px;
+  background-repeat: repeat;">
+  
+  <p class="section__text__p1" style="font-weight: 600; letter-spacing: 2px; margin-bottom: 0.25rem;">Get in Touch</p>
+  <h1 class="title" style="font-weight: 700; margin-bottom: 1rem;">Contact Me</h1>
+
+  <p style="color: #f0e6c8; font-size: 1rem; line-height: 1.5; margin-bottom: 2rem;">
+    I’m currently exploring data analyst opportunities and always open to connecting with like-minded professionals. If you have a role, project, or collaboration in mind, I’d love to hear from you!
+  </p>
+
+  <!-- FORM CONTAINER WITH BACKGROUND -->
+  <div style="background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(6px); padding: 2rem; border-radius: 12px; box-shadow: 0 0 15px rgba(212,175,55,0.3);">
+    <form id="contact-form" style="display: flex; flex-direction: column; gap: 1.5rem;" action="mailto:sebasortuno459@gmail.com" method="POST" enctype="text/plain" onsubmit="return validateAndSend(event)">
+      <div style="position: relative;">
+        <label for="name" style="
+          position: absolute;
+          left: 12px;
+          top: 1rem;
+          color: #d4af37;
+          font-size: 1rem;
+          pointer-events: none;
+          transition: all 0.3s ease;
+        ">Your Name</label>
+        <input type="text" id="name" name="name" autocomplete="off" required style="
+          width: 100%;
+          padding: 1.25rem 1rem 0.5rem 1rem;
+          border: none;
+          border-bottom: 2px solid #d4af37;
+          background: transparent;
+          color: white;
+          font-size: 1rem;
+          outline: none;
+        " />
       </div>
-    </section>
+
+      <div style="position: relative;">
+        <label for="email" style="
+          position: absolute;
+          left: 12px;
+          top: 1rem;
+          color: #d4af37;
+          font-size: 1rem;
+          pointer-events: none;
+          transition: all 0.3s ease;
+        ">Your Email</label>
+        <input type="email" id="email" name="email" autocomplete="off" required style="
+          width: 100%;
+          padding: 1.25rem 1rem 0.5rem 1rem;
+          border: none;
+          border-bottom: 2px solid #d4af37;
+          background: transparent;
+          color: white;
+          font-size: 1rem;
+          outline: none;
+        " />
+      </div>
+
+      <div style="position: relative;">
+        <label for="message" style="
+          position: absolute;
+          left: 12px;
+          top: 1rem;
+          color: #d4af37;
+          font-size: 1rem;
+          pointer-events: none;
+          transition: all 0.3s ease;
+        ">Your Message</label>
+        <textarea id="message" name="message" rows="5" required style="
+          width: 100%;
+          padding: 1.25rem 1rem 0.5rem 1rem;
+          border: none;
+          border-bottom: 2px solid #d4af37;
+          background: transparent;
+          color: white;
+          font-size: 1rem;
+          outline: none;
+          resize: vertical;
+          font-family: inherit;
+        "></textarea>
+      </div>
+
+      <button type="submit" style="
+        align-self: center;
+        background-color: #d4af37;
+        border: none;
+        padding: 0.75rem 2rem;
+        color: black;
+        font-weight: 700;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+      " onmouseover="this.style.backgroundColor='#b9922a'" onmouseout="this.style.backgroundColor='#d4af37'">
+        Send Message
+      </button>
+    </form>
+  </div>
+
+  <p style="margin-top: 2rem; font-size: 0.95rem; text-align: center; color: #f0e6c8;">
+    Email: <a href="mailto:sebasortuno459@gmail.com" style="color: #d4af37; text-decoration: none;">sebasortuno459@gmail.com</a>
+  </p>
+  <p style="margin-top: 0.5rem; font-size: 0.95rem; text-align: center; color: #f0e6c8;">
+    LinkedIn: <a href="https://www.linkedin.com/in/sebastian-ortuno-barrero-324382257" target="_blank" rel="noopener noreferrer" style="color: #d4af37; text-decoration: none;">www.linkedin.com/in/sebastian-ortuno-barrero-324382257</a>
+  </p>
+
+  <script>
+    // Floating label effect with input detection
+    document.querySelectorAll('#contact input, #contact textarea').forEach((el) => {
+      const label = el.previousElementSibling;
+
+      function checkInput() {
+        if (el.value.trim() !== '') {
+          label.style.top = '0';
+          label.style.fontSize = '0.8rem';
+          label.style.color = '#ffd700';
+        } else if (document.activeElement !== el) {
+          label.style.top = '1rem';
+          label.style.fontSize = '1rem';
+          label.style.color = '#d4af37';
+        }
+      }
+
+      el.addEventListener('focus', () => {
+        label.style.top = '0';
+        label.style.fontSize = '0.8rem';
+        label.style.color = '#ffd700';
+      });
+
+      el.addEventListener('blur', checkInput);
+      el.addEventListener('input', checkInput);
+
+      // Initialize label position on page load
+      checkInput();
+    });
+
+    // Simple validation and send trigger for mailto
+    function validateAndSend(event) {
+      return true;
+    }
+  </script>
+</section>
 
     <footer>
       <nav>
