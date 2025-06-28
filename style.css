@@ -218,7 +218,10 @@ section {
   margin: 0 5rem;
   box-sizing: border-box;
   min-height: fit-content;
-  background: linear-gradient(135deg, #1c1c1c 40%, #000000 100%);
+
+  /* CAMBIO: fondo transparente en lugar de fondo negro degradado */
+  background: transparent;
+
   border-top: 3px solid #d4af37;
   border-bottom: 3px solid #d4af37;
   animation: fadeUp 0.8s ease-out;
@@ -401,17 +404,14 @@ section {
   border: 4px solid #d4af37;
 }
 
-.arrow {
-  position: absolute;
-  right: -5rem;
-  bottom: 2.5rem;
-  animation: bounce 2s infinite;
-}
-
+/* ELIMINAR FONDO NEGRO EN LOS DETALLES */
 .details-container {
   padding: 1.5rem;
   flex: 1;
-  background: #1c1c1c;
+
+  /* fondo transparente */
+  background: transparent;
+
   border-radius: 2rem;
   border: #d4af37 0.1rem solid;
   text-align: center;
@@ -462,9 +462,12 @@ article .icon {
   margin-bottom: 2rem;
 }
 
+/* ELIMINAR FONDO NEGRO EN COLOR-CONTAINER */
 .color-container {
   border-color: #d4af37;
-  background: #1c1c1c;
+
+  /* fondo transparente */
+  background: transparent;
 }
 
 .project-img {
@@ -505,6 +508,9 @@ article .icon {
   height: auto;
   margin-top: 2rem;
   margin-bottom: 1.5rem;
+
+  /* quitar fondo negro para que sea transparente */
+  background: transparent;
 }
 
 .contact-info-upper-container {
@@ -512,7 +518,10 @@ article .icon {
   justify-content: center;
   border-radius: 2rem;
   border: #d4af37 0.1rem solid;
-  background: #1c1c1c;
+
+  /* fondo transparente */
+  background: transparent;
+
   margin: 1rem auto;
   padding: 0.5rem;
 }
@@ -687,6 +696,7 @@ footer p {
     margin: 0 1rem;
     padding-top: 3vh;
     height: auto;
+    background: transparent;
   }
 
   .section-container {
@@ -779,4 +789,3 @@ footer p {
     display: none;
   }
 }
-
