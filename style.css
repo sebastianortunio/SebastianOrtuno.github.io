@@ -65,12 +65,20 @@ a {
   position: relative;
   text-shadow: 1px 1px 2px #000000;
   font-weight: 500;
+  outline-offset: 2px;
 }
 
-a:hover {
+a:hover,
+a:focus-visible {
   color: #d4af37;
   text-decoration: none;
   transform: scale(1.05);
+  outline: none;
+}
+
+a:focus-visible {
+  outline: 2px solid #d4af37;
+  outline-offset: 4px;
 }
 
 a::after {
@@ -81,10 +89,11 @@ a::after {
   bottom: -4px;
   left: 0;
   background-color: #d4af37;
-  transition: 0.3s ease;
+  transition: width 0.3s ease;
 }
 
-a:hover::after {
+a:hover::after,
+a:focus-visible::after {
   width: 100%;
 }
 
@@ -97,16 +106,24 @@ a:hover::after {
   letter-spacing: 1.5px;
   text-shadow: 2px 2px 5px #000;
   transition: all 0.3s ease;
+  user-select: none;
 }
 
-.logo:hover {
+.logo:hover,
+.logo:focus-visible {
   cursor: pointer;
   color: #d4af37;
   transform: scale(1.08);
   text-shadow: 0 0 15px #d4af37;
+  outline: none;
 }
 
-/* HAMBURGER MENU (sin cambios importantes) */
+.logo:focus-visible {
+  outline: 2px solid #d4af37;
+  outline-offset: 6px;
+}
+
+/* HAMBURGER MENU */
 #hamburger-nav {
   display: none;
 }
@@ -130,6 +147,7 @@ a:hover::after {
   height: 2px;
   background-color: #f5f5f5;
   transition: all 0.3s ease-in-out;
+  border-radius: 1px;
 }
 
 .menu-links {
@@ -140,15 +158,19 @@ a:hover::after {
   width: fit-content;
   max-height: 0;
   overflow: hidden;
-  transition: all 0.3s ease-in-out;
+  transition: max-height 0.3s ease-in-out;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.7);
+  z-index: 10;
 }
 
 .menu-links a {
   display: block;
-  padding: 10px;
+  padding: 10px 20px;
   text-align: center;
   font-size: 1.5rem;
   color: #f5f5f5;
+  user-select: none;
 }
 
 .menu-links li {
@@ -174,7 +196,6 @@ a:hover::after {
 /* ----------------------- */
 /* EFECTO DE DESVANECIMIENTO AL HACER SCROLL */
 /* ----------------------- */
-
 .fade-in-section {
   opacity: 0;
   transform: translateY(20px);
@@ -218,13 +239,11 @@ section {
   margin: 0 5rem;
   box-sizing: border-box;
   min-height: fit-content;
-
-  /* CAMBIO: fondo transparente en lugar de fondo negro degradado */
   background: transparent;
-
   border-top: 3px solid #d4af37;
   border-bottom: 3px solid #d4af37;
   animation: fadeUp 0.8s ease-out;
+  scroll-margin-top: 80px; /* good for fixed nav offset */
 }
 
 .section-container {
@@ -283,11 +302,19 @@ section {
   text-align: center;
   color: #f5f5f5;
   animation: fadeIn 1s ease-in-out;
+  user-select: none;
 }
 
-.title:hover {
+.title:hover,
+.title:focus-visible {
   color: #d4af37;
   transition: color 0.3s ease;
+  outline: none;
+}
+
+.title:focus-visible {
+  outline: 2px solid #d4af37;
+  outline-offset: 6px;
 }
 
 #socials-container {
@@ -305,8 +332,15 @@ section {
   transition: transform 0.3s ease;
 }
 
-.icon:hover {
+.icon:hover,
+.icon:focus-visible {
   transform: scale(1.2);
+  outline: none;
+}
+
+.icon:focus-visible {
+  outline: 2px solid #d4af37;
+  outline-offset: 4px;
 }
 
 /* BUTTONS */
@@ -325,16 +359,13 @@ section {
   position: relative;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  user-select: none;
+  border: none;
 }
 
 .btn-color-1,
 .btn-color-2 {
-  border: #d4af37 0.1rem solid;
-}
-
-.btn-color-1:hover,
-.btn-color-2:hover {
-  cursor: pointer;
+  border: 0.1rem solid #d4af37;
 }
 
 .btn-color-1,
@@ -349,10 +380,12 @@ section {
 
 .btn-color-2 {
   background: none;
+  color: #f5f5f5;
 }
 
 .btn-color-2:hover {
-  border: #b08d32 0.1rem solid;
+  border-color: #b08d32;
+  color: white;
 }
 
 .btn-color-1:hover::before {
@@ -381,17 +414,13 @@ section {
 
 .about-containers {
   gap: 2rem;
-  margin-bottom: 2rem;
-  margin-top: 2rem;
+  margin: 2rem 0;
+  display: flex;
 }
 
 .about-details-container {
   justify-content: center;
   flex-direction: column;
-}
-
-.about-containers,
-.about-details-container {
   display: flex;
 }
 
@@ -408,12 +437,9 @@ section {
 .details-container {
   padding: 1.5rem;
   flex: 1;
-
-  /* fondo transparente */
   background: transparent;
-
   border-radius: 2rem;
-  border: #d4af37 0.1rem solid;
+  border: 0.1rem solid #d4af37;
   text-align: center;
   box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
 }
@@ -465,8 +491,6 @@ article .icon {
 /* ELIMINAR FONDO NEGRO EN COLOR-CONTAINER */
 .color-container {
   border-color: #d4af37;
-
-  /* fondo transparente */
   background: transparent;
 }
 
@@ -475,12 +499,14 @@ article .icon {
   width: 90%;
   height: 90%;
   filter: grayscale(30%);
-  transition: all 0.3s ease;
+  transition: filter 0.3s ease, transform 0.3s ease;
 }
 
-.project-img:hover {
+.project-img:hover,
+.project-img:focus-visible {
   filter: grayscale(0%);
   transform: scale(1.03);
+  outline: none;
 }
 
 .project-title {
@@ -506,10 +532,7 @@ article .icon {
   justify-content: center;
   flex-direction: column;
   height: auto;
-  margin-top: 2rem;
-  margin-bottom: 1.5rem;
-
-  /* quitar fondo negro para que sea transparente */
+  margin: 2rem 0 1.5rem;
   background: transparent;
 }
 
@@ -517,11 +540,8 @@ article .icon {
   display: flex;
   justify-content: center;
   border-radius: 2rem;
-  border: #d4af37 0.1rem solid;
-
-  /* fondo transparente */
+  border: 0.1rem solid #d4af37;
   background: transparent;
-
   margin: 1rem auto;
   padding: 0.5rem;
 }
@@ -557,13 +577,21 @@ article .icon {
   text-align: center;
   font-weight: 600;
   border-radius: 2rem;
-  transition: background-color 0.3s, color 0.3s;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  user-select: none;
 }
 
-.download-cv-btn:hover {
+.download-cv-btn:hover,
+.download-cv-btn:focus-visible {
   background-color: #d4af37;
   color: #1c1c1c;
   cursor: pointer;
+  outline: none;
+}
+
+.download-cv-btn:focus-visible {
+  outline: 2px solid #b08d32;
+  outline-offset: 4px;
 }
 
 /* FOOTER SECTION */
@@ -571,22 +599,36 @@ footer {
   height: 26vh;
   margin: 0 1rem;
   background-color: #000000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 footer p {
   text-align: center;
   color: #f5f5f5;
+  user-select: none;
 }
 
 /* Email and LinkedIn Links */
 .email,
 .linkedin {
   color: #f5f5f5;
+  transition: color 0.3s ease;
 }
 
 .email:hover,
-.linkedin:hover {
+.email:focus-visible,
+.linkedin:hover,
+.linkedin:focus-visible {
   color: #d4af37;
+  outline: none;
+}
+
+.email:focus-visible,
+.linkedin:focus-visible {
+  outline: 2px solid #d4af37;
+  outline-offset: 4px;
 }
 
 /* Divider between sections */
@@ -595,6 +637,7 @@ footer p {
   margin: 2rem 0;
 }
 
+/* Projects layout */
 .projects-columns-container {
   display: flex;
   flex-direction: row;
@@ -669,8 +712,6 @@ footer p {
     transform: translateY(0);
   }
 }
-
-/* ... tu código original ... */
 
 /* MOBILE RESPONSIVENESS */
 @media screen and (max-width: 768px) {
